@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simply Spacial Mind · Night Garden v6 (draft, not published)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Literata:ital,opsz,wght@0,7..72,400;1,7..72,400&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* Palette: Kim's exact pins. Pin 1 Deep Aubergine & Dark Emerald: #0F2018 #183229 #152A21 #C8C5A7 #3B2738 #3C2E49.
+   Pin 3 Gray Magenta & Dark Green: #42303D #779273 #7E6377. Pin 2 Aura: #374E49 #35233A #CBB9A3. Pin 4 Sunset Snow: #F8CCAA #F2C1A3.
+   Contrast notes (v2): cream text on every dark surface 6.97-9.68:1; #779273 button with #0F2018 label 4.95:1; #7E6377 is decoration/lines only (3.18:1, never text). */
+:root{
+ --bg:#0F2018;--bg2:#152A21;--surface:#183229;--aub:#3B2738;--aub2:#3C2E49;--mag-d:#42303D;
+ --ink:#C8C5A7;--ink-soft:#C8C5A7cc;--btn:#779273;--btn-ink:#0F2018;--pop-mag:#7E6377;--pop-teal:#374E49;--pop-green:#779273;
+ --line:#C8C5A740;--glow:#C8C5A7;
+}
+html.light{
+ --bg:#F8CCAA;--bg2:#F2C1A3;--surface:#F2C1A3;--aub:#CBB9A3;--aub2:#CBB9A3;--mag-d:#CBB9A3;
+ --ink:#35233A;--ink-soft:#35233A;--btn:#374E49;--btn-ink:#F8CCAA;--pop-mag:#7E6377;--pop-teal:#374E49;--pop-green:#374E49;
+ --line:#35233A40;--glow:#F8CCAA;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--bg);color:var(--ink);font:300 1.125rem/1.6 Lexend,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.07;z-index:50;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit;text-underline-offset:.25em;text-decoration-thickness:1px}
+:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:2px}
+.skip{position:absolute;left:1rem;top:-4rem;background:var(--ink);color:var(--bg);padding:.6rem 1rem;z-index:99}
+.skip:focus{top:1rem}
+.draft{background:var(--pop-teal);color:#C8C5A7;text-align:center;font-size:.85rem;padding:.4rem 1rem;letter-spacing:.04em}
+html.light .draft{color:#F8CCAA}
+.wrap{max-width:72rem;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+.measure{max-width:65ch}
+h1,h2,h3{font-family:"Cormorant Garamond",Literata,Georgia,serif;font-weight:400;line-height:1.15;margin:0 0 .6em;letter-spacing:.005em}
+h1{font-size:clamp(2.6rem,6.5vw,5rem)}
+h2{font-size:clamp(2rem,4vw,3rem)}
+h3{font-size:1.6rem;font-weight:500}
+.eyebrow{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;opacity:.85;margin:0 0 1.25rem}
+p{margin:0 0 1.1em}
+.lede{font-family:Literata,Georgia,serif;font-size:1.3rem;line-height:1.55}
+.btn{display:inline-block;background:var(--btn);color:var(--btn-ink);padding:.9rem 1.6rem;border-radius:999px;text-decoration:none;font-weight:500;border:0;font:inherit;font-weight:500;cursor:pointer}
+.ghost{display:inline-block;padding:.9rem 1.2rem;text-decoration:underline}
+/* nav */
+header{position:relative;z-index:5}
+nav{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between;padding:1.5rem 0}
+.brand{font-family:"Cormorant Garamond",serif;font-size:1.5rem;text-decoration:none;display:flex;gap:.6rem;align-items:center}
+nav ul{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;list-style:none;margin:0;padding:0;font-size:1rem}
+nav ul a{text-decoration:none;border-bottom:1px solid transparent;padding:.3rem 0}
+nav ul a:hover{border-color:currentColor}
+.toggle{background:none;border:1px solid var(--line);color:inherit;font:inherit;font-size:.9rem;padding:.45rem .9rem;border-radius:999px;cursor:pointer}
+/* hero */
+.hero{position:relative;min-height:min(92vh,52rem);display:grid;align-items:start;padding-bottom:5rem;overflow:hidden;
+ background:radial-gradient(60rem 40rem at 72% 42%,color-mix(in srgb,var(--glow) 16%,transparent),transparent 60%),
+ radial-gradient(50rem 40rem at 10% 90%,color-mix(in srgb,var(--aub) 85%,transparent),transparent 70%),
+ radial-gradient(40rem 30rem at 95% 100%,color-mix(in srgb,var(--mag-d) 70%,transparent),transparent 70%),
+ linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:3rem;align-items:center;width:100%}
+.hero h1 em{font-style:italic}
+.hero nav{grid-column:1/-1}
+.lantern{width:100%;max-width:26rem;justify-self:center}
+.constellation{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.55}
+@media (max-width:800px){.hero .wrap{grid-template-columns:1fr}.lantern{max-width:12rem;order:2}}
+section{padding:clamp(5rem,12vw,9rem) 0;position:relative}
+.rule{display:flex;align-items:center;gap:1rem;color:var(--pop-mag);margin-bottom:2rem}
+.rule::before,.rule::after{content:"";height:1px;flex:1;background:var(--line)}
+/* invitation */
+.invite{background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.invite blockquote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.35;margin:0 0 2rem;max-width:30ch}
+/* ways */
+.ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:3rem}
+.way{background:var(--bg);padding:2.5rem 2rem}
+.way svg{width:44px;height:44px;margin-bottom:1.25rem}
+.way .num{font-size:.8rem;letter-spacing:.2em;opacity:.8}
+/* topics */
+.topics{background:linear-gradient(180deg,var(--bg),var(--aub) 140%)}
+html.light .topics{background:linear-gradient(180deg,var(--bg),var(--aub))}
+.tlist{list-style:none;margin:3rem 0 0;padding:0;border-top:1px solid var(--line)}
+.tlist li{display:grid;grid-template-columns:3rem minmax(0,16rem) minmax(0,1fr);gap:1.5rem;padding:1.75rem 0;border-bottom:1px solid var(--line);align-items:baseline}
+.tlist svg{width:28px;height:28px;align-self:center}
+.tlist h3{margin:0;font-size:1.55rem}
+.tlist p{margin:0;max-width:52ch}
+@media (max-width:700px){.tlist li{grid-template-columns:2.5rem 1fr}.tlist p{grid-column:2}}
+/* story */
+.story .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:4rem;align-items:center}
+.portrait{aspect-ratio:4/5;border-radius:12rem 12rem 4px 4px;background:radial-gradient(circle at 50% 35%,color-mix(in srgb,var(--glow) 18%,transparent),transparent 60%),linear-gradient(160deg,var(--surface),var(--aub2));border:1px solid var(--line);display:grid;place-items:end center;padding:2rem;font-size:.85rem;text-align:center}
+@media (max-width:800px){.story .wrap{grid-template-columns:1fr}.portrait{max-width:18rem}}
+/* pause */
+.pause{text-align:center;background:radial-gradient(40rem 26rem at 50% 50%,color-mix(in srgb,var(--pop-teal) 55%,transparent),transparent 70%),var(--bg)}
+.pause .measure{margin:0 auto}
+.breath{width:9rem;height:9rem;margin:2.5rem auto;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font-size:.9rem;position:relative}
+.breath::after{content:"";position:absolute;inset:-1.2rem;border-radius:50%;border:1px solid var(--line)}
+.breath.on{animation:br 10s ease-in-out infinite}
+@keyframes br{0%,100%{transform:scale(.85)}50%{transform:scale(1.1)}}
+@media (prefers-reduced-motion:reduce){.breath.on{animation:none}}
+/* bridge */
+.bridge{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(4rem,9vw,6rem) 0}
+.bridge .wrap{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:2.5rem;align-items:center}
+.bridge svg{width:56px;height:56px}
+@media (max-width:800px){.bridge .wrap{grid-template-columns:1fr}}
+/* signup */
+.signup{background:radial-gradient(50rem 30rem at 50% 100%,color-mix(in srgb,var(--glow) 12%,transparent),transparent 70%),linear-gradient(180deg,var(--bg),var(--aub))}
+.signup .measure{margin:0 auto;text-align:center}
+.field{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:2rem}
+.field label{flex-basis:100%;font-size:1rem}
+.field input{flex:1 1 16rem;max-width:22rem;background:transparent;border:1px solid var(--ink);color:var(--ink);font:inherit;padding:.85rem 1.1rem;border-radius:999px}
+.field input::placeholder{color:var(--ink);opacity:.75}
+footer{padding:4rem 0 3rem;font-size:1rem;background:var(--aub)}
+html.light footer{background:var(--aub)}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:2rem;margin-bottom:2.5rem}
+footer .note{border-top:1px solid var(--line);padding-top:1.5rem;max-width:75ch}
+/* slow reveal, off by default; only runs if the reader opts in */
+.reveal-on .rv{opacity:0;transform:translateY(16px);transition:opacity 1.4s ease,transform 1.4s ease}
+.reveal-on .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal-on .rv{opacity:1;transform:none;transition:none}}
+.icon{fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* v5: one continuous dark dusk. Pin colours beyond the base appear only as small accents. */
+:root{--peach:#F2C1A3;--dawn:#F8CCAA;--rose:#CD9FA0;--steel:#857C91;--sage:#779273;--sage2:#67725C;--gm:#7E6377;--glow:#CD9FA0;--btn:#779273;--btn-ink:#0F2018;--line:#C8C5A72e}
+body{background:#0F2018}
+.hero{background:radial-gradient(34rem 26rem at 74% 46%,#F2C1A31c,transparent 62%),radial-gradient(40rem 28rem at 8% 100%,#3B273866,transparent 70%),linear-gradient(180deg,#0F2018 0%,#152A21 100%)}
+.hero .eyebrow{color:var(--rose)}
+h1 em,h2 em{color:var(--rose)}
+.invite{background:linear-gradient(180deg,#152A21 0%,#1C2A26 45%,#2A2532 100%)}
+.invite .eyebrow,.invite blockquote{color:var(--rose)}
+#ways{background:linear-gradient(180deg,#2A2532 0%,#2B3135 50%,#263B36 100%)}
+#ways .ways{background:#C8C5A726;border-color:#C8C5A726}.way{background:#263B36cc}
+#ways .eyebrow{color:var(--sage)}
+.topics,html.light .topics{background:linear-gradient(180deg,#263B36 0%,#22302A 50%,#2A2A2A 100%)}
+.tlist li{border-left:2px solid var(--acc);padding-left:1.25rem}
+.tlist li:nth-child(3n+1){--acc:#67725C}.tlist li:nth-child(3n+2){--acc:#7E6377}.tlist li:nth-child(3n){--acc:#857C91}
+.tlist li svg{color:var(--acc)!important}
+.story{background:radial-gradient(30rem 24rem at 22% 40%,#CD9FA014,transparent 70%),linear-gradient(180deg,#2A2A2A 0%,#2F2733 50%,#35233A 100%)}
+.story .portrait{background:radial-gradient(circle at 50% 35%,#F2C1A31f,transparent 60%),linear-gradient(160deg,#36382E,#3C2E49);border-color:#C8C5A733;color:#C8C5A7}
+.story .eyebrow{color:var(--rose)}
+.pause{background:radial-gradient(30rem 20rem at 50% 55%,#CD9FA014,transparent 70%),linear-gradient(180deg,#35233A 0%,#35233A 100%)}
+.pause .eyebrow{color:var(--rose)}.pause .breath{border-color:#CD9FA099}
+.bridge{background:radial-gradient(36rem 18rem at 50% 50%,#F2C1A312,transparent 70%),linear-gradient(180deg,#35233A 0%,#2C2A35 50%,#1E2A26 100%);border:0;border-top:1px solid #C8C5A71f;border-bottom:1px solid #C8C5A71f}
+.bridge svg{color:var(--sage)!important}.bridge .ghost{color:var(--peach)}
+.signup{background:radial-gradient(40rem 22rem at 50% 100%,#F2C1A314,transparent 70%),linear-gradient(180deg,#1E2A26 0%,#152A21 50%,#0F2018 100%)}
+.signup .btn{background:#779273;color:#0F2018}.signup .eyebrow{color:var(--rose)}
+footer,html.light footer{background:linear-gradient(180deg,#0F2018 0%,#1A1E1F 100%);--line:#857C9140}
+.a11y{margin-top:1.5rem;font-size:.9rem;opacity:.85}.a11y .toggle{font-size:.85rem;padding:.35rem .8rem}
+/* optional lighter reading (off by default): soft, muted, never glaring */
+html.light body{background:#E9DCCB}
+html.light .hero,html.light .invite,html.light #ways,html.light .topics,html.light .story,html.light .pause,html.light .bridge,html.light .signup,html.light footer{background:#E9DCCB;color:#35233A}
+html.light #ways,html.light .story,html.light .bridge{background:#E2D3C1}
+html.light .way{background:#E2D3C1}html.light #ways .ways{background:#35233A30}
+html.light .eyebrow,html.light blockquote,html.light h1 em,html.light h2 em{color:#5A3F55!important}
+html.light .story .portrait{background:#D9C6B2;color:#35233A}
+html.light .signup .btn{background:#374E49;color:#F2EBDD}html.light .bridge .ghost{color:#35233A}
+html.light .field input{border-color:#35233A;color:#35233A}html.light .field input::placeholder{color:#35233A}
+
+/* v6: muted antique gold linework, decorative only, static, kept to margins */
+.gold{position:absolute;pointer-events:none;z-index:0;max-width:none}
+.hero>.gold,section>.gold,aside>.gold,footer>.gold{display:block}
+section>.wrap,aside>.wrap,footer>.wrap{position:relative;z-index:2}
+footer{position:relative;overflow:hidden}section,.bridge{overflow:hidden;position:relative}
+.gold.tl{top:4.5rem;left:-2rem}.gold.tr{top:1.5rem;right:-1rem}.gold.bl{bottom:0;left:-1rem}
+.gold.halo{top:50%;right:6%;transform:translateY(-52%)}
+.gold.r{top:50%;right:-6rem;transform:translateY(-50%)}.gold.l{bottom:0;left:-1.5rem}.gold.br{bottom:0;right:0}
+.gold.c{top:50%;left:50%;transform:translate(-50%,-50%)}.gold.bl2{inset:0}.gold.b{bottom:0;left:50%;transform:translateX(-50%)}
+@media (max-width:800px){.gold.halo{top:auto;bottom:2rem;right:50%;transform:translateX(50%);width:20rem!important}.gold.tl{opacity:.18!important}.gold.l,.gold.r{opacity:.12!important}}
+html.light .gold{opacity:.12!important;filter:brightness(.6)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero" aria-labelledby="h-hero"><svg class="gold tl" aria-hidden="true" focusable="false" viewBox="0 0 400 300" style="width:min(34rem,70vw);height:auto;opacity:0.32" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M30 60L90 40L150 80L210 50L270 90" stroke-width=".6" stroke-dasharray="1 4"/><circle cx="30" cy="60" r="1.4" fill="#B8975A" stroke="none"/><circle cx="90" cy="40" r="1.4" fill="#B8975A" stroke="none"/><circle cx="150" cy="80" r="1.4" fill="#B8975A" stroke="none"/><circle cx="210" cy="50" r="1.4" fill="#B8975A" stroke="none"/><circle cx="270" cy="90" r="1.4" fill="#B8975A" stroke="none"/><path d="M90 33L90 47M83 40L97 40" stroke="#D4B377" stroke-width=".8"/><circle cx="90" cy="40" r="1.1" fill="#D4B377" stroke="none"/><path d="M270 85L270 95M265 90L275 90" stroke="#D4B377" stroke-width=".8"/><circle cx="270" cy="90" r="1.1" fill="#D4B377" stroke="none"/><path d="M200 300A0 0 0 0 1 200 300" stroke-width="0.90"/></svg><svg class="gold halo" aria-hidden="true" focusable="false" viewBox="0 0 300 300" style="width:min(30rem,80vw);height:auto;opacity:0.22" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><circle cx="150" cy="150" r="70" stroke-width="0.7"/><circle cx="150" cy="150" r="96" stroke-width="0.5"/><circle cx="150" cy="150" r="124" stroke-width="0.35"/><path d="M282.0 150.0L296.0 150.0" stroke-width=".6"/><path d="M280.9 132.8L294.8 130.9" stroke-width=".6"/><path d="M277.5 115.8L291.0 112.2" stroke-width=".6"/><path d="M272.0 99.5L284.9 94.1" stroke-width=".6"/><path d="M264.3 84.0L276.4 77.0" stroke-width=".6"/><path d="M254.7 69.6L265.8 61.1" stroke-width=".6"/><path d="M243.3 56.7L253.2 46.8" stroke-width=".6"/><path d="M230.4 45.3L238.9 34.2" stroke-width=".6"/><path d="M216.0 35.7L223.0 23.6" stroke-width=".6"/><path d="M200.5 28.0L205.9 15.1" stroke-width=".6"/><path d="M184.2 22.5L187.8 9.0" stroke-width=".6"/><path d="M167.2 19.1L169.1 5.2" stroke-width=".6"/><path d="M150.0 18.0L150.0 4.0" stroke-width=".6"/><path d="M132.8 19.1L130.9 5.2" stroke-width=".6"/><path d="M115.8 22.5L112.2 9.0" stroke-width=".6"/><path d="M99.5 28.0L94.1 15.1" stroke-width=".6"/><path d="M84.0 35.7L77.0 23.6" stroke-width=".6"/><path d="M69.6 45.3L61.1 34.2" stroke-width=".6"/><path d="M56.7 56.7L46.8 46.8" stroke-width=".6"/><path d="M45.3 69.6L34.2 61.1" stroke-width=".6"/><path d="M35.7 84.0L23.6 77.0" stroke-width=".6"/><path d="M28.0 99.5L15.1 94.1" stroke-width=".6"/><path d="M22.5 115.8L9.0 112.2" stroke-width=".6"/><path d="M19.1 132.8L5.2 130.9" stroke-width=".6"/><path d="M18.0 150.0L4.0 150.0" stroke-width=".6"/><path d="M150 8L150 20M144 14L156 14" stroke="#D4B377" stroke-width=".8"/><circle cx="150" cy="14" r="1.1" fill="#D4B377" stroke="none"/></svg><svg class="gold bl" aria-hidden="true" focusable="false" viewBox="0 0 120 320" style="width:min(14rem,40vw);height:auto;opacity:0.28" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M40 320C50 200.0 32 110.0 44 20"/><path d="M42 270.0q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M42 220.0q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M42 170.0q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M42 120.0q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M42 70.0q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M70 320C60 232.0 78 166.0 66 100"/><path d="M68 283.3333333333333q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M68 246.66666666666669q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M68 210.0q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M68 173.33333333333334q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M68 136.66666666666666q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M46 13L46 23M41 18L51 18" stroke="#D4B377" stroke-width=".8"/><circle cx="46" cy="18" r="1.1" fill="#D4B377" stroke="none"/></svg>
+ <svg class="constellation" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <g stroke="var(--steel)" stroke-width=".6" opacity=".5" fill="none">
+   <path d="M120 140 L230 90 L330 160 L300 260"/><path d="M940 120 L1040 180 L1100 110"/><path d="M80 620 L170 560 L240 640"/>
+  </g>
+  <g fill="var(--ink)"><circle cx="120" cy="140" r="1.6"/><circle cx="230" cy="90" r="1.2"/><circle cx="330" cy="160" r="1.8"/><circle cx="300" cy="260" r="1.1"/><circle cx="940" cy="120" r="1.4"/><circle cx="1040" cy="180" r="1.9"/><circle cx="1100" cy="110" r="1.1"/><circle cx="80" cy="620" r="1.3"/><circle cx="170" cy="560" r="1.6"/><circle cx="240" cy="640" r="1.1"/><circle cx="600" cy="60" r="1"/><circle cx="760" cy="720" r="1.2"/></g>
+  <!-- fine-line botanical rising from the bottom edge -->
+  <g stroke="var(--sage2)" stroke-width=".9" fill="none" opacity=".8">
+   <path d="M1010 800 C1000 700 1030 620 1010 520"/><path d="M1012 690 C1050 670 1075 640 1080 600 C1045 610 1020 640 1012 690Z"/>
+   <path d="M1008 600 C970 585 950 555 948 520 C985 530 1004 560 1008 600Z"/><path d="M60 800 C75 720 60 660 85 590"/><path d="M70 700 C40 690 25 665 22 635 C52 645 68 668 70 700Z"/>
+  </g>
+ </svg>
+ <div class="wrap">
+  <nav aria-label="Main">
+   <a class="brand" href="#"><span>Simply Spacial <em>Mind</em></span></a>
+   <ul>
+    <li><a href="#ways">Ways in</a></li><li><a href="#topics">Topics</a></li><li><a href="#story">Kim's story</a></li><li><a href="#pause">Pause</a></li>
+    <li><a href="https://simplyspacial.com">Organizing ↗</a></li>
+   </ul>
+     </nav>
+  <div>
+   <p class="eyebrow">The deeper room of Simply Spacial</p>
+   <h1 id="h-hero">In the quiet<br><em>our hearts light up.</em></h1>
+   <p class="lede measure">A slow place to relax, notice what is underneath, and build a deeper relationship with yourself. Regulation before education.</p>
+   <p><a class="btn" href="#signup">Step inside</a> <a class="ghost" href="#pause">Take a pause first</a></p>
+  </div>
+  <!-- the one luminous glow: a lantern with a heart flame (heart use 1 of 2) -->
+  <svg class="lantern" viewBox="0 0 300 380" role="img" aria-label="A thin-line lantern glowing in the dark, with a small heart for a flame">
+   <defs><radialGradient id="g" cx="50%" cy="56%" r="50%"><stop offset="0" stop-color="var(--glow)" stop-opacity=".55"/><stop offset=".45" stop-color="var(--glow)" stop-opacity=".12"/><stop offset="1" stop-color="var(--glow)" stop-opacity="0"/></radialGradient></defs>
+   <circle cx="150" cy="215" r="150" fill="url(#g)"/>
+   <g class="icon" stroke="var(--ink)" stroke-width="1">
+    <path d="M150 20 V58"/><path d="M128 58 H172 L188 100 H112 Z"/><path d="M112 100 C92 160 92 270 118 320 H182 C208 270 208 160 188 100"/>
+    <path d="M150 100 V320" opacity=".35"/><path d="M118 320 H182 L176 344 H124 Z"/>
+   </g>
+   <path fill="var(--dawn)" d="M150 248 C132 234 124 222 124 210 C124 200 132 193 141 193 C146 193 149 196 150 199 C151 196 154 193 159 193 C168 193 176 200 176 210 C176 222 168 234 150 248Z" opacity=".95"/>
+  </svg>
+ </div>
+</header>
+
+<main id="main">
+<section class="invite" aria-labelledby="h-inv"><svg class="gold r" aria-hidden="true" focusable="false" viewBox="0 0 200 200" style="width:min(20rem,45vw);height:auto;opacity:0.34" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M170 100A30 30 0 0 1 230 100" stroke-width="0.90"/><path d="M154 100A46 46 0 0 1 246 100" stroke-width="0.78"/><path d="M138 100A62 62 0 0 1 262 100" stroke-width="0.66"/><path d="M122 100A78 78 0 0 1 278 100" stroke-width="0.54"/><path d="M106 100A94 94 0 0 1 294 100" stroke-width="0.42"/><path d="M150 35L150 45M145 40L155 40" stroke="#D4B377" stroke-width=".8"/><circle cx="150" cy="40" r="1.1" fill="#D4B377" stroke="none"/></svg>
+ <div class="wrap">
+  <p class="eyebrow">An invitation</p>
+  <blockquote class="rv">Simply Spacial keeps it simple.<br>Here, we go deeper.</blockquote>
+  <div class="measure rv">
+   <h2 id="h-inv" style="font-size:1.9rem">Come as you are. Stay as long as you like.</h2>
+   <p>This is a quiet room for the parts of you that rarely get time. Your feelings. Your patterns. Your deepest thoughts.</p>
+   <p>We slow down first, so the body can relax and come off alert. From there, awareness comes more easily. You notice. You understand. You choose.</p>
+  </div>
+ </div>
+</section>
+
+<section id="ways" aria-labelledby="h-ways"><svg class="gold tr" aria-hidden="true" focusable="false" viewBox="0 0 220 140" style="width:min(22rem,50vw);height:auto;opacity:0.36" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M20 120L60 70L110 90L150 30L200 50" stroke-width=".6" stroke-dasharray="1 4"/><circle cx="20" cy="120" r="1.4" fill="#B8975A" stroke="none"/><circle cx="60" cy="70" r="1.4" fill="#B8975A" stroke="none"/><circle cx="110" cy="90" r="1.4" fill="#B8975A" stroke="none"/><circle cx="150" cy="30" r="1.4" fill="#B8975A" stroke="none"/><circle cx="200" cy="50" r="1.4" fill="#B8975A" stroke="none"/><path d="M150 24L150 36M144 30L156 30" stroke="#D4B377" stroke-width=".8"/><circle cx="150" cy="30" r="1.1" fill="#D4B377" stroke="none"/></svg>
+ <div class="wrap">
+  <p class="eyebrow">Three ways in</p>
+  <h2 id="h-ways" class="measure rv">Start with the one that feels gentle today.</h2>
+  <div class="ways rv">
+   <article class="way">
+    <svg class="icon" viewBox="0 0 44 44" aria-hidden="true" style="color:var(--pop-mag)"><path d="M22 6a11 11 0 0 0-6 20v4h12v-4a11 11 0 0 0-6-20Z"/><path d="M17 34h10M19 38h6"/><path d="M22 12v6" opacity=".6"/></svg>
+    <p class="num">I · REFLECT</p><h3>Notice what is there</h3>
+    <p>Short prompts and quiet writing for the moments when something stirs. Awareness, one small light at a time.</p>
+   </article>
+   <article class="way">
+    <svg class="icon" viewBox="0 0 44 44" aria-hidden="true" style="color:var(--pop-green)"><circle cx="22" cy="22" r="16"/><path d="M27 17l-3 7-7 3 3-7z"/></svg>
+    <p class="num">II · UNDERSTAND</p><h3>Learn the why</h3>
+    <p>Plain-language lessons on regulation, rhythm and the nervous system, so your reactions start to make sense.</p>
+   </article>
+   <article class="way">
+    <svg class="icon" viewBox="0 0 44 44" aria-hidden="true" style="color:var(--ink)"><path d="M30 8a14 14 0 1 0 6 22A12 12 0 0 1 30 8Z"/></svg>
+    <p class="num">III · RELAX</p><h3>Let the body rest</h3>
+    <p>Low-stimulation pauses, breath and sound for evenings and hard days. Nothing to finish. Nothing to fix.</p>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="topics" class="topics" aria-labelledby="h-topics"><svg class="gold l" aria-hidden="true" focusable="false" viewBox="0 0 100 400" style="width:min(12rem,30vw);height:auto;opacity:0.28" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M30 400C40 248.0 22 134.0 34 20"/><path d="M32 336.6666666666667q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M32 273.3333333333333q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M32 210.0q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M32 146.66666666666666q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M32 83.33333333333331q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M60 400C50 296.0 68 218.0 56 140"/><path d="M58 356.6666666666667q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M58 313.3333333333333q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M58 270.0q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M58 226.66666666666666q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M58 183.33333333333334q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M34 15L34 25M29 20L39 20" stroke="#D4B377" stroke-width=".8"/><circle cx="34" cy="20" r="1.1" fill="#D4B377" stroke="none"/></svg><svg class="gold br" aria-hidden="true" focusable="false" viewBox="0 0 200 200" style="width:min(16rem,40vw);height:auto;opacity:0.24" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M240.0 200.0L390.0 200.0" stroke-width=".6"/><path d="M238.0 187.6L380.7 141.3" stroke-width=".6"/><path d="M232.4 176.5L353.7 88.3" stroke-width=".6"/><path d="M223.5 167.6L311.7 46.3" stroke-width=".6"/><path d="M212.4 162.0L258.7 19.3" stroke-width=".6"/><path d="M200.0 160.0L200.0 10.0" stroke-width=".6"/><path d="M187.6 162.0L141.3 19.3" stroke-width=".6"/><path d="M176.5 167.6L88.3 46.3" stroke-width=".6"/><path d="M167.6 176.5L46.3 88.3" stroke-width=".6"/><path d="M162.0 187.6L19.3 141.3" stroke-width=".6"/><path d="M160.0 200.0L10.0 200.0" stroke-width=".6"/></svg>
+ <div class="wrap">
+  <p class="eyebrow">Rooms to explore</p>
+  <h2 id="h-topics" class="measure rv">Go where your attention is already going.</h2>
+  <ul class="tlist">
+   <li class="rv"><svg class="icon" viewBox="0 0 28 28" aria-hidden="true" style="color:var(--pop-green)"><path d="M14 26V12M14 12C14 6 9 3 4 3c0 5 4 9 10 9ZM14 16c0-5 4-8 10-8 0 5-4 8-10 8Z"/></svg><h3>Generational patterns</h3><p>Noticing what was handed down, and what you want to carry forward.</p></li>
+   <li class="rv"><svg class="icon" viewBox="0 0 28 28" aria-hidden="true" style="color:var(--pop-mag)"><circle cx="10" cy="14" r="7"/><circle cx="18" cy="14" r="7"/></svg><h3>Relationships</h3><p>Connection, needs and repair, including the Autistic Ledger: a way to see the give and take that often goes unseen.</p></li>
+   <li class="rv"><svg class="icon" viewBox="0 0 28 28" aria-hidden="true" style="color:var(--ink)"><path d="M2 14c3-8 6-8 8 0s5 8 8 0 5-8 8 0"/></svg><h3>Bipolar</h3><p>Living with rhythm and change, alongside the care team you already have. </p></li>
+   <li class="rv"><svg class="icon" viewBox="0 0 28 28" aria-hidden="true" style="color:var(--pop-mag)"><path d="M4 20c4-2 6-6 10-6s6 4 10 6M4 14c4-2 6-6 10-6s6 4 10 6" /></svg><h3>Emotions</h3><p>Naming what you feel, where it lives in the body, and what it is asking for.</p></li>
+   <li class="rv"><svg class="icon" viewBox="0 0 28 28" aria-hidden="true" style="color:var(--pop-green)"><path d="M14 3c-6 6-6 16 0 22 6-6 6-16 0-22Z"/><path d="M14 9v16"/></svg><h3>Wellness</h3><p>Water, rest, food and time off. The quiet basics a calm mind leans on.</p></li>
+  </ul>
+ </div>
+</section>
+
+<section id="story" class="story" aria-labelledby="h-story"><svg class="gold tr" aria-hidden="true" focusable="false" viewBox="0 0 240 160" style="width:min(24rem,55vw);height:auto;opacity:0.3" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M60 160A60 60 0 0 1 180 160" stroke-width="0.90"/><path d="M42 160A78 78 0 0 1 198 160" stroke-width="0.78"/><path d="M24 160A96 96 0 0 1 216 160" stroke-width="0.66"/><path d="M6 160A114 114 0 0 1 234 160" stroke-width="0.54"/><path d="M140.0 160.0L172.0 160.0" stroke-width=".6"/><path d="M139.3 154.8L170.2 146.5" stroke-width=".6"/><path d="M137.3 150.0L165.0 134.0" stroke-width=".6"/><path d="M134.1 145.9L156.8 123.2" stroke-width=".6"/><path d="M130.0 142.7L146.0 115.0" stroke-width=".6"/><path d="M125.2 140.7L133.5 109.8" stroke-width=".6"/><path d="M120.0 140.0L120.0 108.0" stroke-width=".6"/><path d="M114.8 140.7L106.5 109.8" stroke-width=".6"/><path d="M110.0 142.7L94.0 115.0" stroke-width=".6"/><path d="M105.9 145.9L83.2 123.2" stroke-width=".6"/><path d="M102.7 150.0L75.0 134.0" stroke-width=".6"/><path d="M100.7 154.8L69.8 146.5" stroke-width=".6"/><path d="M100.0 160.0L68.0 160.0" stroke-width=".6"/><path d="M120 15L120 25M115 20L125 20" stroke="#D4B377" stroke-width=".8"/><circle cx="120" cy="20" r="1.1" fill="#D4B377" stroke="none"/></svg>
+ <div class="wrap">
+  <div class="portrait" role="img" aria-label="Placeholder for a portrait of Kim">Portrait of Kim<br>(placeholder)</div>
+  <div class="measure rv">
+   <p class="eyebrow">Lived, not just learned</p>
+   <h2 id="h-story">Why I built the deeper room.</h2>
+   <p>I spent fifteen years helping people organize their homes. Along the way I learned that an organized house was only part of what I needed.</p>
+   <p>I live with mental health challenges. What helped me most was slowing down, learning to regulate, and listening to myself with more kindness.</p>
+   <p><em>Placeholder story. Kim to rewrite in her own words.</em></p>
+  </div>
+ </div>
+</section>
+
+<section id="pause" class="pause" aria-labelledby="h-pause"><svg class="gold c" aria-hidden="true" focusable="false" viewBox="0 0 400 400" style="width:min(40rem,95vw);height:auto;opacity:0.28" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><circle cx="200" cy="200" r="150" stroke-width=".5" stroke-dasharray="none"/><circle cx="200" cy="200" r="172" stroke-width=".5" stroke-dasharray="2 6"/><circle cx="200" cy="200" r="194" stroke-width=".5" stroke-dasharray="none"/><path d="M200 1L200 11M195 6L205 6" stroke="#D4B377" stroke-width=".8"/><circle cx="200" cy="6" r="1.1" fill="#D4B377" stroke="none"/><path d="M394 196L394 204M390 200L398 200" stroke="#D4B377" stroke-width=".8"/><circle cx="394" cy="200" r="1.1" fill="#D4B377" stroke="none"/><path d="M6 196L6 204M2 200L10 200" stroke="#D4B377" stroke-width=".8"/><circle cx="6" cy="200" r="1.1" fill="#D4B377" stroke="none"/></svg>
+ <div class="wrap">
+  <div class="measure">
+   <p class="eyebrow">A pause</p>
+   <h2 id="h-pause">Before you scroll on, one slow breath.</h2>
+   <p>Let your shoulders drop. Feel your feet. Breathe in for four, out for six. Notice one thing that feels a little softer.</p>
+   <div class="breath" id="breath" aria-hidden="true">breathe</div>
+   <button class="toggle" id="breathBtn" aria-pressed="false">Show a breathing guide (motion)</button>
+  </div>
+ </div>
+</section>
+
+<aside class="bridge" aria-labelledby="h-bridge"><svg class="gold bl2" aria-hidden="true" focusable="false" viewBox="0 0 1200 200" style="width:100%;height:100%;opacity:0.32" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M0 170Q300 120 600 170T1200 170" stroke-width=".6"/><path d="M0 182Q300 140 600 182T1200 182" stroke-width=".4"/><path d="M1080 35L1080 45M1075 40L1085 40" stroke="#D4B377" stroke-width=".8"/><circle cx="1080" cy="40" r="1.1" fill="#D4B377" stroke="none"/></svg>
+ <div class="wrap">
+  <svg class="icon" viewBox="0 0 56 56" aria-hidden="true" style="color:var(--pop-green)"><path d="M12 50V22a16 16 0 0 1 32 0v28"/><path d="M20 50V24a8 8 0 0 1 16 0v26"/><path d="M6 50h44"/></svg>
+  <div class="measure">
+   <h2 id="h-bridge" style="font-size:1.9rem">When the space around you needs care too.</h2>
+   <p style="margin:0">A clear mind makes room for structure, rhythm and space. If your home is asking for help, Kim's organizing work lives at Simply Spacial.</p>
+  </div>
+  <a class="ghost" href="https://simplyspacial.com">Visit simplyspacial.com ↗</a>
+ </div>
+</aside>
+
+<section id="signup" class="signup" aria-labelledby="h-signup"><svg class="gold b" aria-hidden="true" focusable="false" viewBox="0 0 400 200" style="width:min(36rem,90vw);height:auto;opacity:0.26" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M270.0 200.0L380.0 200.0" stroke-width=".6"/><path d="M268.9 187.8L377.3 168.7" stroke-width=".6"/><path d="M265.8 176.1L369.1 138.4" stroke-width=".6"/><path d="M260.6 165.0L355.9 110.0" stroke-width=".6"/><path d="M253.6 155.0L337.9 84.3" stroke-width=".6"/><path d="M245.0 146.4L315.7 62.1" stroke-width=".6"/><path d="M235.0 139.4L290.0 44.1" stroke-width=".6"/><path d="M223.9 134.2L261.6 30.9" stroke-width=".6"/><path d="M212.2 131.1L231.3 22.7" stroke-width=".6"/><path d="M200.0 130.0L200.0 20.0" stroke-width=".6"/><path d="M187.8 131.1L168.7 22.7" stroke-width=".6"/><path d="M176.1 134.2L138.4 30.9" stroke-width=".6"/><path d="M165.0 139.4L110.0 44.1" stroke-width=".6"/><path d="M155.0 146.4L84.3 62.1" stroke-width=".6"/><path d="M146.4 155.0L62.1 84.3" stroke-width=".6"/><path d="M139.4 165.0L44.1 110.0" stroke-width=".6"/><path d="M134.2 176.1L30.9 138.4" stroke-width=".6"/><path d="M131.1 187.8L22.7 168.7" stroke-width=".6"/><path d="M130.0 200.0L20.0 200.0" stroke-width=".6"/><path d="M150 200A50 50 0 0 1 250 200" stroke-width="0.90"/><path d="M136 200A64 64 0 0 1 264 200" stroke-width="0.78"/><path d="M60 55L60 65M55 60L65 60" stroke="#D4B377" stroke-width=".8"/><circle cx="60" cy="60" r="1.1" fill="#D4B377" stroke="none"/><path d="M340 36L340 44M336 40L344 40" stroke="#D4B377" stroke-width=".8"/><circle cx="340" cy="40" r="1.1" fill="#D4B377" stroke="none"/></svg>
+ <div class="wrap">
+  <div class="measure">
+   <p class="eyebrow">Letters from the quiet</p>
+   <h2 id="h-signup">A short, gentle email course.</h2>
+   <p>A few slow letters on regulation, rhythm and getting to know yourself. Read them whenever you like.</p>
+   <div class="field">
+    <label for="em">Your email address</label>
+    <input id="em" type="email" autocomplete="email" placeholder="you@example.com">
+    <button class="btn" type="button">Begin</button>
+   </div>
+   <p style="font-size:.95rem;margin-top:1rem">Draft. Course length to be confirmed by Kim.</p>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer><svg class="gold tr" aria-hidden="true" focusable="false" viewBox="0 0 160 120" style="width:min(16rem,40vw);height:auto;opacity:0.3" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M10 100L50 60L90 80L140 20" stroke-width=".6" stroke-dasharray="1 4"/><circle cx="10" cy="100" r="1.4" fill="#B8975A" stroke="none"/><circle cx="50" cy="60" r="1.4" fill="#B8975A" stroke="none"/><circle cx="90" cy="80" r="1.4" fill="#B8975A" stroke="none"/><circle cx="140" cy="20" r="1.4" fill="#B8975A" stroke="none"/><path d="M140 15L140 25M135 20L145 20" stroke="#D4B377" stroke-width=".8"/><circle cx="140" cy="20" r="1.1" fill="#D4B377" stroke="none"/></svg>
+ <div class="wrap">
+  <div class="cols">
+   <div><p class="brand" style="margin:0 0 .5rem">Simply Spacial <em>Mind</em></p><p>A quiet place to relax and come home to yourself.</p></div>
+   <div><p><a href="#ways">Ways in</a><br><a href="#topics">Topics</a><br><a href="#story">Kim's story</a><br><a href="https://simplyspacial.com">Simply Spacial organizing ↗</a></p></div>
+   <div><svg class="icon" viewBox="0 0 28 28" width="28" height="28" aria-hidden="true" style="color:var(--pop-mag)"><path d="M14 23C8 19 4 15 4 10.5 4 7.5 6.3 5 9.2 5c2 0 3.8 1.2 4.8 3 1-1.8 2.8-3 4.8-3C21.7 5 24 7.5 24 10.5 24 15 20 19 14 23Z"/></svg><p>With heart, from Kim.</p></div>
+  </div>
+  <p class="a11y">Reading comfort: <button class="toggle" id="mode" aria-pressed="false">Lighter reading</button></p>
+  <div class="note">
+   <p><strong>Content note:</strong> some pages talk about family patterns, mood and hard emotions. Go at your own pace.</p>
+   <p>Simply Spacial Mind shares lived experience and education. It is not therapy or medical advice, and it does not replace care from a professional.</p>
+   <p>If you are in crisis in the US, call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline). Outside the US, contact your local emergency number.</p>
+  </div>
+ </div>
+</footer>
+<script>
+const r=document.documentElement,m=document.getElementById('mode');
+m.onclick=()=>{const on=r.classList.toggle('light');m.setAttribute('aria-pressed',on);m.textContent=on?'Darker reading':'Lighter reading'};
+const b=document.getElementById('breath'),bb=document.getElementById('breathBtn');
+bb.onclick=()=>{const on=b.classList.toggle('on');bb.setAttribute('aria-pressed',on);bb.textContent=on?'Stop the breathing guide':'Show a breathing guide (motion)'};
+</script>
+</body>
+</html>
