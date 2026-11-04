@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Simply Spacial"
+description = "A neurodivergence-friendly daily wellness space with optional mood and energy check-ins, personal reflections, grounding exercises, and gentle task-starting tools."
+version = "1.0.0"
+id = "artifacts/simply-spacial"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20270
+
+[services.development]
+run = "pnpm --filter @workspace/simply-spacial run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/simply-spacial", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/simply-spacial/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20270"
+BASE_PATH = "/"

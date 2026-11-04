@@ -1,6 +1,6 @@
-# [Project name]
+# Simply Spacial
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Simply Spacial is a mental health and neurodivergence wellness platform, initially focused on daily wellness tools.
 
 ## Run & Operate
 
@@ -26,11 +26,13 @@ _Populate as you build — short repo map plus pointers to the source-of-truth f
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The first version stores personal entries in the user's browser, without accounts or server-side health data. This keeps the initial experience usable without collecting sensitive information on the server; it is not cross-device storage or a backup.
+- Position the product as wellness support, not diagnosis, clinical treatment, or a crisis service.
+- Check-ins and tool prompts are optional. Avoid streak pressure, clinical interpretations, or fabricated personal history.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Optional mood-and-energy check-ins, a personal check-in journal, grounding and breathing exercises, and a gentle task-starting tool.
 
 ## User preferences
 
