@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simply Spacial Mind · Night Garden v6 (draft, not published)</title>
+<title>Simply Spacial Mind · Night Garden v8 direction proof (draft, not published)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Literata:ital,opsz,wght@0,7..72,400;1,7..72,400&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -163,6 +163,141 @@ footer{position:relative;overflow:hidden}section,.bridge{overflow:hidden;positio
 .gold.c{top:50%;left:50%;transform:translate(-50%,-50%)}.gold.bl2{inset:0}.gold.b{bottom:0;left:50%;transform:translateX(-50%)}
 @media (max-width:800px){.gold.halo{top:auto;bottom:2rem;right:50%;transform:translateX(50%);width:20rem!important}.gold.tl{opacity:.18!important}.gold.l,.gold.r{opacity:.12!important}}
 html.light .gold{opacity:.12!important;filter:brightness(.6)}
+
+/* v7: the hero feeling, carried down. One glowing linework moment per room. */
+section{padding:clamp(7rem,15vw,12rem) 0}
+.measure{max-width:60ch}
+h2{font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.1}
+.split{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:3rem;align-items:center}
+.moment{display:block;width:100%;max-width:24rem;height:auto;justify-self:center;overflow:visible}
+.m-branch{max-width:28rem}.m-letter{max-width:15rem;margin:0 auto 1.5rem}
+@media (max-width:800px){.split{grid-template-columns:1fr}.moment{max-width:15rem}.m-branch{max-width:18rem}}
+.stars{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5;background-repeat:repeat;background-size:420px 420px;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cg fill='%23D4B377'%3E%3Ccircle cx='40' cy='60' r='1'/%3E%3Ccircle cx='300' cy='30' r='.8'/%3E%3Ccircle cx='190' cy='210' r='1.1'/%3E%3Ccircle cx='380' cy='300' r='.8'/%3E%3Ccircle cx='90' cy='370' r='.9'/%3E%3C/g%3E%3Cg stroke='%23B8975A' stroke-width='.6'%3E%3Cpath d='M300 24v12M294 30h12'/%3E%3Cpath d='M90 364v12M84 370h12'/%3E%3C/g%3E%3C/svg%3E");
+ animation:twinkle 14s ease-in-out infinite alternate}
+section:nth-of-type(even) .stars{background-position:210px 140px;animation-delay:-7s}
+@keyframes twinkle{from{opacity:.35}to{opacity:.6}}
+@media (prefers-reduced-motion:reduce){.stars{animation:none}}
+.cards{list-style:none;margin:4rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.5rem}
+.card{position:relative;padding:2.25rem 2rem;border:1px solid #B8975A55;border-radius:1.25rem;background:radial-gradient(18rem 12rem at 20% 0%,var(--cg),transparent 70%),#0F2018b3}
+.card:nth-child(odd){--cg:#183229}.card:nth-child(even){--cg:#3C2E49cc}
+.card .ic{display:grid;place-items:center;width:3.25rem;height:3.25rem;border-radius:50%;margin-bottom:1.25rem;background:radial-gradient(circle,#F2C1A31f,transparent 70%);border:1px solid #B8975A40}
+.card svg{width:28px;height:28px}
+.card h3{font-size:1.75rem;margin:0 0 .5rem}.card p{margin:0}
+.archwrap{position:relative;max-width:22rem;width:100%;justify-self:center}
+.archwrap .moment{max-width:none}
+.archwrap .portrait{position:absolute;left:21.9%;right:21.9%;top:24%;bottom:7%;aspect-ratio:auto;border-radius:9rem 9rem 2px 2px;background:radial-gradient(circle at 50% 30%,#F2C1A31a,transparent 65%),#2F273399!important;border-color:#C8C5A726}
+.story .wrap{gap:5rem}
+.breathwrap{position:relative;width:min(30rem,90vw);aspect-ratio:1;margin:1.5rem auto;display:grid;place-items:center}
+.breathwrap .moment{position:absolute;inset:0;max-width:none}
+.breathwrap .breath{margin:0;background:#35233Acc;z-index:1}
+.pause .measure{position:relative;z-index:2}
+.pause>.gold.c{opacity:.14!important}
+html.light .stars{opacity:.15;animation:none}
+html.light .card{background:#E2D3C1;border-color:#35233A40}
+html.light .moment{opacity:.55;filter:brightness(.55)}
+html.light .breathwrap .breath{background:#E9DCCB}
+html.light .archwrap .portrait{background:#D9C6B2!important}
+</style>
+<style>
+/* ===== v8 proof: below-hero redesign. Hero untouched. =====
+   Color rhythm (no adjacent section shares a dominant family):
+   Hero emerald | Invite plum | Ways Concrete twilight | Topics teal-emerald
+   | Story rosewood-warm aubergine | Question near-black Concrete | Bridge emerald
+   | Signup aubergine | Footer deepest Concrete night */
+.stars{display:none}
+main section,main aside{position:relative;overflow:hidden;isolation:isolate}
+.v8 .wrap{position:relative;z-index:2}
+.gold-line{stroke:#B8975A;fill:none}
+.eyebrow{color:#CD9FA0}
+/* dividers — gold hairlines between every below-hero section */
+.div-horizon{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#D4B37766 30%,#D4B377aa 50%,#D4B37766 70%,transparent);z-index:3}
+.div-horizon::after{content:"✦";position:absolute;left:50%;top:-.75rem;transform:translateX(-50%);color:#D4B377;font-size:.9rem;opacity:.8}
+.div-band{display:block;width:100%;height:48px;position:relative;z-index:3}
+.div-band svg{display:block;width:100%;height:100%}
+/* 1 Invitation — PLUM / AUBERGINE (hero above is emerald; must NOT be green) */
+#invite{padding:9rem 0 10rem;text-align:center;background:
+ radial-gradient(46rem 22rem at 50% 108%,#CD9FA048,transparent 70%),
+ radial-gradient(30rem 16rem at 50% 100%,#F2C1A328,transparent 70%),
+ linear-gradient(180deg,#35233A 0%,#3B2738 55%,#3C2E49 100%)}
+#invite blockquote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(2.6rem,5.6vw,4.6rem);line-height:1.12;margin:0 auto 3.5rem;max-width:18ch;color:#C8C5A7}
+#invite blockquote em{color:#F2C1A3}
+#invite .measure{margin:0 auto;max-width:44ch}
+#invite h2{font-size:1.7rem;color:#CD9FA0}
+#invite .moon{position:absolute;left:50%;bottom:-11rem;transform:translateX(-50%);width:44rem;height:22rem;z-index:1;opacity:.5}
+/* 2 Ways in — TWILIGHT CONCRETE blue-grey (Pin 4 #525871, darkened) */
+#ways{padding:8rem 0 9rem;background:
+ radial-gradient(26rem 30rem at 18% 70%,#CD9FA028,transparent 70%),
+ radial-gradient(28rem 34rem at 50% 45%,#52587188,transparent 70%),
+ radial-gradient(26rem 30rem at 84% 75%,#857C9140,transparent 70%),
+ linear-gradient(180deg,#1E2430 0%,#252B38 50%,#2B3344 100%)}
+#ways .head{text-align:center;max-width:40rem;margin:0 auto 4.5rem}
+.windows{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;align-items:start}
+.win{position:relative;border:1px solid #D4B37755;border-radius:11rem 11rem 6px 6px;padding:7.5rem 2rem 2.6rem;text-align:center;min-height:30rem;
+ background:radial-gradient(14rem 14rem at 50% 22%,var(--wg),transparent 70%),linear-gradient(180deg,#1A1F2Aaa,#161A24ee)}
+.win:nth-child(1){--wg:#CD9FA040;margin-top:4rem}
+.win:nth-child(2){--wg:#F2C1A33a}
+.win:nth-child(3){--wg:#857C9148;margin-top:6rem}
+.win::before{content:"";position:absolute;inset:.6rem;border:1px solid #D4B37722;border-radius:10.4rem 10.4rem 3px 3px;pointer-events:none}
+.win svg{width:48px;height:48px;margin:0 auto 1.4rem;display:block}
+.win .num{font-size:.8rem;letter-spacing:.24em;color:#D4B377}
+.win h3{font-size:1.9rem}
+@media(max-width:860px){.windows{grid-template-columns:1fr}.win{margin-top:0!important}}
+/* 3 Topics — DEEP TEAL / EMERALD (Aura #374E49 + Pin 1 emerald) */
+#topics{padding:9rem 0;background:
+ radial-gradient(40rem 30rem at 88% 12%,#374E4988,transparent 70%),
+ radial-gradient(30rem 24rem at 5% 95%,#183229cc,transparent 70%),
+ linear-gradient(180deg,#14241F 0%,#183229 45%,#1A2C28 100%)}
+#topics .grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.6fr);gap:4rem}
+#topics .side{position:sticky;top:3rem;align-self:start}
+#topics h2{font-size:clamp(2.4rem,4.4vw,3.6rem)}
+.map{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;list-style:none;margin:0;padding:0}
+.map li{background:linear-gradient(160deg,#1F322Cee,#152A21ee);border:1px solid #D4B37740;border-radius:4px 28px 4px 28px;padding:2rem 1.8rem;box-shadow:0 0 60px -20px var(--tg)}
+.map li:nth-child(even){transform:translateY(3.5rem)}
+.map li:nth-child(1){--tg:#F2C1A3}.map li:nth-child(2){--tg:#CD9FA0}.map li:nth-child(3){--tg:#857C91}.map li:nth-child(4){--tg:#779273}.map li:nth-child(5){--tg:#D4B377;grid-column:1/-1;transform:none;margin-top:3.5rem}
+.map svg{width:30px;height:30px;color:var(--tg);margin-bottom:.8rem}
+.map h3{font-size:1.7rem;margin-bottom:.35em}
+.map p{margin:0}
+.map .thread{position:absolute;inset:-2rem;z-index:-1;width:calc(100% + 4rem);height:calc(100% + 4rem);opacity:.35}
+@media(max-width:860px){#topics .grid,.map{grid-template-columns:1fr}.map li{transform:none!important}#topics .side{position:static}}
+/* 4 Story — ROSEWOOD-WARM AUBERGINE (no emerald half; Topics above is teal) */
+#story{padding:0;background:linear-gradient(90deg,#1A1420 0%,#2A1F2E 48%,#2A1F2E 48%,#321F2C 100%)}
+#story .full{display:grid;grid-template-columns:46% 54%;min-height:46rem}
+#story .left{position:relative;display:grid;place-items:center;background:radial-gradient(26rem 30rem at 50% 70%,#F2C1A332,transparent 70%),radial-gradient(18rem 20rem at 30% 20%,#CD9FA028,transparent 70%)}
+#story .arch{width:min(22rem,80%);aspect-ratio:3/4;border-radius:11rem 11rem 0 0;border:1px solid #D4B37780;background:radial-gradient(circle at 50% 38%,#F2C1A333,transparent 60%),linear-gradient(170deg,#3C2E49,#3B2738);display:grid;place-items:end center;padding:2rem;font-size:.9rem;box-shadow:0 0 0 14px #2A1F2E,0 0 0 15px #D4B37744}
+#story .right{padding:7rem clamp(2rem,6vw,6rem);display:flex;flex-direction:column;justify-content:center;background:radial-gradient(30rem 22rem at 90% 20%,#CD9FA033,transparent 70%),radial-gradient(24rem 18rem at 70% 90%,#857C9128,transparent 70%),#321F2C}
+#story .pull{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(2rem,3.4vw,2.8rem);line-height:1.2;color:#F2C1A3;margin:0 0 2rem;border-left:1px solid #D4B37788;padding-left:1.4rem}
+@media(max-width:860px){#story{background:#1A1420}#story .full{grid-template-columns:1fr}#story .left{padding:4rem 0}}
+/* 5 Question to sit with — NEAR-BLACK CONCRETE twilight (blue-grey night, not green) */
+#pause{padding:11rem 0;text-align:center;background:
+ radial-gradient(36rem 20rem at 50% 50%,#52587166,transparent 70%),
+ radial-gradient(60rem 30rem at 50% 50%,#857C9122,transparent 70%),
+ #0E1218}
+#pause .q{font-family:"Cormorant Garamond",serif;font-size:clamp(2.6rem,5.4vw,4.4rem);line-height:1.15;max-width:20ch;margin:0 auto 2.4rem;color:#C8C5A7}
+#pause .q em{color:#CD9FA0}
+#pause .measure{margin:0 auto;max-width:46ch}
+#pause .sky{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.6}
+/* 6 Bridge — DEEP EMERALD (Pin 1; after Concrete night) */
+#bridge{padding:0;background:linear-gradient(180deg,#0F2018,#152A21)}
+#bridge .band{display:grid;grid-template-columns:1.1fr 1fr;min-height:24rem}
+#bridge .l{padding:6rem clamp(1.5rem,5vw,4rem);display:flex;flex-direction:column;justify-content:center;background:#0F2018}
+#bridge .r{position:relative;background:radial-gradient(30rem 14rem at 60% 100%,#F8CCAA3a,transparent 70%),radial-gradient(22rem 18rem at 70% 90%,#CD9FA02a,transparent 70%),linear-gradient(180deg,#152A21,#183229);display:flex;align-items:flex-end;justify-content:center;padding:3rem;border-left:1px solid #D4B37733}
+#bridge .r svg{width:100%;max-width:26rem;height:auto}
+#bridge .go{display:inline-flex;gap:.6rem;align-items:center;border:1px solid #D4B37788;border-radius:999px;padding:.85rem 1.4rem;text-decoration:none;color:#F2C1A3;width:max-content;margin-top:1rem}
+@media(max-width:860px){#bridge .band{grid-template-columns:1fr}}
+/* 7 Signup — AUBERGINE (Pin 1 #3B2738; after emerald bridge) */
+#signup{padding:9rem 0;background:radial-gradient(34rem 26rem at 72% 50%,#CD9FA038,transparent 70%),radial-gradient(30rem 20rem at 10% 20%,#7E637744,transparent 70%),linear-gradient(180deg,#3C2E49,#3B2738)}
+#signup .grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+#signup h2{font-size:clamp(2.4rem,4.4vw,3.6rem)}
+.letter{position:relative;padding:3rem 2.6rem;border:1px solid #D4B37766;background:linear-gradient(170deg,#42303Dee,#35233Aee);border-radius:4px;box-shadow:0 30px 80px -30px #000a,0 0 120px -40px #CD9FA0}
+.letter::before{content:"";position:absolute;inset:.7rem;border:1px solid #D4B37726;pointer-events:none}
+.letter .seal{position:absolute;top:-1.4rem;right:2rem;width:2.8rem;height:2.8rem;border-radius:50%;background:radial-gradient(circle,#D4B377,#B8975A);display:grid;place-items:center;color:#35233A;font-family:"Cormorant Garamond";font-size:1.3rem}
+.letter .field{justify-content:flex-start}
+@media(max-width:860px){#signup .grid{grid-template-columns:1fr}}
+/* 8 Footer — DEEPEST CONCRETE NIGHT (blue-grey; must differ from aubergine signup) */
+footer{background:radial-gradient(40rem 16rem at 50% 0%,#52587155,transparent 70%),#12161F!important;border-top:1px solid #D4B37744;position:relative}
+footer .arc{display:block;width:100%;height:5rem;margin-top:-4rem}
+html.light #invite,html.light #ways,html.light #topics,html.light #story,html.light #pause,html.light #bridge,html.light #signup{filter:none}
 </style>
 </head>
 <body>
@@ -207,111 +342,92 @@ html.light .gold{opacity:.12!important;filter:brightness(.6)}
  </div>
 </header>
 
-<main id="main">
-<section class="invite" aria-labelledby="h-inv"><svg class="gold r" aria-hidden="true" focusable="false" viewBox="0 0 200 200" style="width:min(20rem,45vw);height:auto;opacity:0.34" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M170 100A30 30 0 0 1 230 100" stroke-width="0.90"/><path d="M154 100A46 46 0 0 1 246 100" stroke-width="0.78"/><path d="M138 100A62 62 0 0 1 262 100" stroke-width="0.66"/><path d="M122 100A78 78 0 0 1 278 100" stroke-width="0.54"/><path d="M106 100A94 94 0 0 1 294 100" stroke-width="0.42"/><path d="M150 35L150 45M145 40L155 40" stroke="#D4B377" stroke-width=".8"/><circle cx="150" cy="40" r="1.1" fill="#D4B377" stroke="none"/></svg>
+<main id="main" class="v8">
+<section id="invite" aria-labelledby="h-inv">
+ <svg class="moon" viewBox="0 0 880 440" aria-hidden="true"><g class="gold-line" stroke-width=".8"><circle cx="440" cy="440" r="220" opacity=".9"/><circle cx="440" cy="440" r="270" opacity=".5"/><circle cx="440" cy="440" r="330" opacity=".3" stroke-dasharray="2 8"/><path d="M0 438H880" opacity=".6"/></g></svg>
  <div class="wrap">
   <p class="eyebrow">An invitation</p>
-  <blockquote class="rv">Simply Spacial keeps it simple.<br>Here, we go deeper.</blockquote>
-  <div class="measure rv">
-   <h2 id="h-inv" style="font-size:1.9rem">Come as you are. Stay as long as you like.</h2>
+  <blockquote>Simply Spacial keeps it simple.<br><em>Here, we go deeper.</em></blockquote>
+  <div class="measure">
+   <h2 id="h-inv">Come as you are. Stay as long as you like.</h2>
    <p>This is a quiet room for the parts of you that rarely get time. Your feelings. Your patterns. Your deepest thoughts.</p>
    <p>We slow down first, so the body can relax and come off alert. From there, awareness comes more easily. You notice. You understand. You choose.</p>
   </div>
  </div>
 </section>
-
-<section id="ways" aria-labelledby="h-ways"><svg class="gold tr" aria-hidden="true" focusable="false" viewBox="0 0 220 140" style="width:min(22rem,50vw);height:auto;opacity:0.36" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M20 120L60 70L110 90L150 30L200 50" stroke-width=".6" stroke-dasharray="1 4"/><circle cx="20" cy="120" r="1.4" fill="#B8975A" stroke="none"/><circle cx="60" cy="70" r="1.4" fill="#B8975A" stroke="none"/><circle cx="110" cy="90" r="1.4" fill="#B8975A" stroke="none"/><circle cx="150" cy="30" r="1.4" fill="#B8975A" stroke="none"/><circle cx="200" cy="50" r="1.4" fill="#B8975A" stroke="none"/><path d="M150 24L150 36M144 30L156 30" stroke="#D4B377" stroke-width=".8"/><circle cx="150" cy="30" r="1.1" fill="#D4B377" stroke="none"/></svg>
+<div style="position:relative"><span class="div-horizon"></span></div>
+<section id="ways" aria-labelledby="h-ways">
  <div class="wrap">
-  <p class="eyebrow">Three ways in</p>
-  <h2 id="h-ways" class="measure rv">Start with the one that feels gentle today.</h2>
-  <div class="ways rv">
-   <article class="way">
-    <svg class="icon" viewBox="0 0 44 44" aria-hidden="true" style="color:var(--pop-mag)"><path d="M22 6a11 11 0 0 0-6 20v4h12v-4a11 11 0 0 0-6-20Z"/><path d="M17 34h10M19 38h6"/><path d="M22 12v6" opacity=".6"/></svg>
-    <p class="num">I · REFLECT</p><h3>Notice what is there</h3>
-    <p>Short prompts and quiet writing for the moments when something stirs. Awareness, one small light at a time.</p>
-   </article>
-   <article class="way">
-    <svg class="icon" viewBox="0 0 44 44" aria-hidden="true" style="color:var(--pop-green)"><circle cx="22" cy="22" r="16"/><path d="M27 17l-3 7-7 3 3-7z"/></svg>
-    <p class="num">II · UNDERSTAND</p><h3>Learn the why</h3>
-    <p>Plain-language lessons on regulation, rhythm and the nervous system, so your reactions start to make sense.</p>
-   </article>
-   <article class="way">
-    <svg class="icon" viewBox="0 0 44 44" aria-hidden="true" style="color:var(--ink)"><path d="M30 8a14 14 0 1 0 6 22A12 12 0 0 1 30 8Z"/></svg>
-    <p class="num">III · RELAX</p><h3>Let the body rest</h3>
-    <p>Low-stimulation pauses, breath and sound for evenings and hard days. Nothing to finish. Nothing to fix.</p>
-   </article>
+  <div class="head"><p class="eyebrow">Three ways in</p><h2 id="h-ways">Start with the one that feels gentle today.</h2></div>
+  <div class="windows">
+   <article class="win"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 30c4-8 8 8 12 0s8 8 12 0 8 8 4 0" stroke="#CD9FA0"/><circle cx="24" cy="16" r="3" stroke="#D4B377"/></svg><p class="num">I · REFLECT</p><h3>Notice what is there</h3><p>Short prompts and quiet writing for the moments when something stirs. Awareness, one small light at a time.</p></article>
+   <article class="win"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path stroke="#F2C1A3" d="M18 30c-3-3-5-6-5-10a11 11 0 0 1 22 0c0 4-2 7-5 10v4H18z"/><path d="M19 39h10M21 43h6"/></svg><p class="num">II · UNDERSTAND</p><h3>Learn the why</h3><p>Plain-language lessons on regulation, rhythm and the nervous system, so your reactions start to make sense.</p></article>
+   <article class="win"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M30 10a14 14 0 1 0 8 22A12 12 0 0 1 30 10z" stroke="#779273"/></svg><p class="num">III · RELAX</p><h3>Let the body rest</h3><p>Low-stimulation pauses, breath and sound for evenings and hard days. Nothing to finish. Nothing to fix.</p></article>
   </div>
  </div>
 </section>
-
-<section id="topics" class="topics" aria-labelledby="h-topics"><svg class="gold l" aria-hidden="true" focusable="false" viewBox="0 0 100 400" style="width:min(12rem,30vw);height:auto;opacity:0.28" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M30 400C40 248.0 22 134.0 34 20"/><path d="M32 336.6666666666667q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M32 273.3333333333333q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M32 210.0q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M32 146.66666666666666q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M32 83.33333333333331q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M60 400C50 296.0 68 218.0 56 140"/><path d="M58 356.6666666666667q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M58 313.3333333333333q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M58 270.0q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M58 226.66666666666666q14 -6 22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M58 183.33333333333334q-14 -6 -22 -18q-12 2 -22 18z" stroke-width=".8"/><path d="M34 15L34 25M29 20L39 20" stroke="#D4B377" stroke-width=".8"/><circle cx="34" cy="20" r="1.1" fill="#D4B377" stroke="none"/></svg><svg class="gold br" aria-hidden="true" focusable="false" viewBox="0 0 200 200" style="width:min(16rem,40vw);height:auto;opacity:0.24" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M240.0 200.0L390.0 200.0" stroke-width=".6"/><path d="M238.0 187.6L380.7 141.3" stroke-width=".6"/><path d="M232.4 176.5L353.7 88.3" stroke-width=".6"/><path d="M223.5 167.6L311.7 46.3" stroke-width=".6"/><path d="M212.4 162.0L258.7 19.3" stroke-width=".6"/><path d="M200.0 160.0L200.0 10.0" stroke-width=".6"/><path d="M187.6 162.0L141.3 19.3" stroke-width=".6"/><path d="M176.5 167.6L88.3 46.3" stroke-width=".6"/><path d="M167.6 176.5L46.3 88.3" stroke-width=".6"/><path d="M162.0 187.6L19.3 141.3" stroke-width=".6"/><path d="M160.0 200.0L10.0 200.0" stroke-width=".6"/></svg>
- <div class="wrap">
-  <p class="eyebrow">Rooms to explore</p>
-  <h2 id="h-topics" class="measure rv">Go where your attention is already going.</h2>
-  <ul class="tlist">
-   <li class="rv"><svg class="icon" viewBox="0 0 28 28" aria-hidden="true" style="color:var(--pop-green)"><path d="M14 26V12M14 12C14 6 9 3 4 3c0 5 4 9 10 9ZM14 16c0-5 4-8 10-8 0 5-4 8-10 8Z"/></svg><h3>Generational patterns</h3><p>Noticing what was handed down, and what you want to carry forward.</p></li>
-   <li class="rv"><svg class="icon" viewBox="0 0 28 28" aria-hidden="true" style="color:var(--pop-mag)"><circle cx="10" cy="14" r="7"/><circle cx="18" cy="14" r="7"/></svg><h3>Relationships</h3><p>Connection, needs and repair, including the Autistic Ledger: a way to see the give and take that often goes unseen.</p></li>
-   <li class="rv"><svg class="icon" viewBox="0 0 28 28" aria-hidden="true" style="color:var(--ink)"><path d="M2 14c3-8 6-8 8 0s5 8 8 0 5-8 8 0"/></svg><h3>Bipolar</h3><p>Living with rhythm and change, alongside the care team you already have. </p></li>
-   <li class="rv"><svg class="icon" viewBox="0 0 28 28" aria-hidden="true" style="color:var(--pop-mag)"><path d="M4 20c4-2 6-6 10-6s6 4 10 6M4 14c4-2 6-6 10-6s6 4 10 6" /></svg><h3>Emotions</h3><p>Naming what you feel, where it lives in the body, and what it is asking for.</p></li>
-   <li class="rv"><svg class="icon" viewBox="0 0 28 28" aria-hidden="true" style="color:var(--pop-green)"><path d="M14 3c-6 6-6 16 0 22 6-6 6-16 0-22Z"/><path d="M14 9v16"/></svg><h3>Wellness</h3><p>Water, rest, food and time off. The quiet basics a calm mind leans on.</p></li>
+<svg class="div-band" viewBox="0 0 1440 48" preserveAspectRatio="none" style="background:linear-gradient(180deg,#2B3344,#14241F)" aria-hidden="true"><path d="M0 24C240 4 480 44 720 24S1200 4 1440 24" stroke="#D4B377" stroke-opacity=".5" fill="none"/><circle cx="720" cy="24" r="2.2" fill="#D4B377"/></svg>
+<section id="topics" aria-labelledby="h-topics">
+ <div class="wrap grid">
+  <div class="side"><p class="eyebrow">Rooms to explore</p><h2 id="h-topics">Go where your attention is <em>already going.</em></h2><p>Five rooms in the garden. Each glows a little differently.</p></div>
+  <ul class="map">
+   <li><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M18 30c-3-3-5-6-5-10a11 11 0 0 1 22 0c0 4-2 7-5 10v4H18z"/><path d="M19 39h10M21 43h6"/></svg><h3>Generational patterns</h3><p>Noticing what was handed down, and what you want to carry forward.</p></li>
+   <li><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="18" cy="24" r="9"/><circle cx="30" cy="24" r="9"/></svg><h3>Relationships</h3><p>Connection, needs and repair, including the Autistic Ledger: a way to see the give and take that often goes unseen.</p></li>
+   <li><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 24c5-12 9-12 14 0s9 12 14 0 9-12 12 0"/></svg><h3>Bipolar</h3><p>Living with rhythm and change, alongside the care team you already have.</p></li>
+   <li><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6v36M10 16c6 0 8 8 14 8s8-8 14-8M10 32c6 0 8-8 14-8s8 8 14 8"/></svg><h3>Emotions</h3><p>Naming what you feel, where it lives in the body, and what it is asking for.</p></li>
+   <li><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 42V20M24 26c-8 0-12-6-12-14 8 0 12 6 12 14zM24 22c6 0 10-5 10-11-6 0-10 5-10 11z"/></svg><h3>Wellness</h3><p>Water, rest, food and time off. The quiet basics a calm mind leans on.</p></li>
   </ul>
  </div>
 </section>
-
-<section id="story" class="story" aria-labelledby="h-story"><svg class="gold tr" aria-hidden="true" focusable="false" viewBox="0 0 240 160" style="width:min(24rem,55vw);height:auto;opacity:0.3" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M60 160A60 60 0 0 1 180 160" stroke-width="0.90"/><path d="M42 160A78 78 0 0 1 198 160" stroke-width="0.78"/><path d="M24 160A96 96 0 0 1 216 160" stroke-width="0.66"/><path d="M6 160A114 114 0 0 1 234 160" stroke-width="0.54"/><path d="M140.0 160.0L172.0 160.0" stroke-width=".6"/><path d="M139.3 154.8L170.2 146.5" stroke-width=".6"/><path d="M137.3 150.0L165.0 134.0" stroke-width=".6"/><path d="M134.1 145.9L156.8 123.2" stroke-width=".6"/><path d="M130.0 142.7L146.0 115.0" stroke-width=".6"/><path d="M125.2 140.7L133.5 109.8" stroke-width=".6"/><path d="M120.0 140.0L120.0 108.0" stroke-width=".6"/><path d="M114.8 140.7L106.5 109.8" stroke-width=".6"/><path d="M110.0 142.7L94.0 115.0" stroke-width=".6"/><path d="M105.9 145.9L83.2 123.2" stroke-width=".6"/><path d="M102.7 150.0L75.0 134.0" stroke-width=".6"/><path d="M100.7 154.8L69.8 146.5" stroke-width=".6"/><path d="M100.0 160.0L68.0 160.0" stroke-width=".6"/><path d="M120 15L120 25M115 20L125 20" stroke="#D4B377" stroke-width=".8"/><circle cx="120" cy="20" r="1.1" fill="#D4B377" stroke="none"/></svg>
- <div class="wrap">
-  <div class="portrait" role="img" aria-label="Placeholder for a portrait of Kim">Portrait of Kim<br>(placeholder)</div>
-  <div class="measure rv">
+<svg class="div-band" viewBox="0 0 1440 48" preserveAspectRatio="none" style="background:linear-gradient(180deg,#1A2C28,#1A1420)" aria-hidden="true"><path d="M0 24C360 8 720 40 1080 20S1400 8 1440 24" stroke="#D4B377" stroke-opacity=".45" fill="none"/><circle cx="720" cy="24" r="2" fill="#D4B377"/></svg>
+<section id="story" aria-labelledby="h-story">
+ <div class="full">
+  <div class="left"><div class="arch" role="img" aria-label="Placeholder for a portrait of Kim">Portrait of Kim (placeholder)</div></div>
+  <div class="right"><div class="measure">
    <p class="eyebrow">Lived, not just learned</p>
+   <p class="pull">An organized house was only part of what I needed.</p>
    <h2 id="h-story">Why I built the deeper room.</h2>
    <p>I spent fifteen years helping people organize their homes. Along the way I learned that an organized house was only part of what I needed.</p>
    <p>I live with mental health challenges. What helped me most was slowing down, learning to regulate, and listening to myself with more kindness.</p>
    <p><em>Placeholder story. Kim to rewrite in her own words.</em></p>
-  </div>
+  </div></div>
  </div>
 </section>
-
-<section id="pause" class="pause" aria-labelledby="h-pause"><svg class="gold c" aria-hidden="true" focusable="false" viewBox="0 0 400 400" style="width:min(40rem,95vw);height:auto;opacity:0.28" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><circle cx="200" cy="200" r="150" stroke-width=".5" stroke-dasharray="none"/><circle cx="200" cy="200" r="172" stroke-width=".5" stroke-dasharray="2 6"/><circle cx="200" cy="200" r="194" stroke-width=".5" stroke-dasharray="none"/><path d="M200 1L200 11M195 6L205 6" stroke="#D4B377" stroke-width=".8"/><circle cx="200" cy="6" r="1.1" fill="#D4B377" stroke="none"/><path d="M394 196L394 204M390 200L398 200" stroke="#D4B377" stroke-width=".8"/><circle cx="394" cy="200" r="1.1" fill="#D4B377" stroke="none"/><path d="M6 196L6 204M2 200L10 200" stroke="#D4B377" stroke-width=".8"/><circle cx="6" cy="200" r="1.1" fill="#D4B377" stroke="none"/></svg>
- <div class="wrap">
-  <div class="measure">
-   <p class="eyebrow">A pause</p>
-   <h2 id="h-pause">Before you scroll on, one slow breath.</h2>
-   <p>Let your shoulders drop. Feel your feet. Breathe in for four, out for six. Notice one thing that feels a little softer.</p>
-   <div class="breath" id="breath" aria-hidden="true">breathe</div>
-   <button class="toggle" id="breathBtn" aria-pressed="false">Show a breathing guide (motion)</button>
-  </div>
+<svg class="div-band" viewBox="0 0 1440 48" preserveAspectRatio="none" style="background:linear-gradient(180deg,#321F2C,#0E1218)" aria-hidden="true"><path d="M0 24H1440" stroke="#D4B377" stroke-opacity=".4" fill="none"/><circle cx="720" cy="24" r="2" fill="#D4B377"/></svg>
+<section id="pause" aria-labelledby="h-pause">
+ <svg class="sky" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="#D4B377"><circle cx="160" cy="120" r="1.6"/><circle cx="300" cy="80" r="1"/><circle cx="420" cy="170" r="1.4"/><circle cx="1100" cy="110" r="1.8"/><circle cx="1240" cy="190" r="1.1"/><circle cx="1320" cy="90" r="1.4"/><circle cx="220" cy="560" r="1.2"/><circle cx="1180" cy="580" r="1.5"/><circle cx="700" cy="70" r="1"/></g><g stroke="#B8975A" stroke-opacity=".5" stroke-width=".6" fill="none" stroke-dasharray="1 4"><path d="M160 120L300 80L420 170"/><path d="M1100 110L1240 190L1320 90"/></g></svg>
+ <div class="wrap" style="z-index:2">
+  <p class="eyebrow">A question to sit with</p>
+  <h2 id="h-pause" class="q">What is one thing that feels <em>a little softer</em> right now?</h2>
+  <div class="measure"><p>No need to answer out loud. Let it stay with you as you read on, or come back to it later.</p></div>
  </div>
 </section>
-
-<aside class="bridge" aria-labelledby="h-bridge"><svg class="gold bl2" aria-hidden="true" focusable="false" viewBox="0 0 1200 200" style="width:100%;height:100%;opacity:0.32" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M0 170Q300 120 600 170T1200 170" stroke-width=".6"/><path d="M0 182Q300 140 600 182T1200 182" stroke-width=".4"/><path d="M1080 35L1080 45M1075 40L1085 40" stroke="#D4B377" stroke-width=".8"/><circle cx="1080" cy="40" r="1.1" fill="#D4B377" stroke="none"/></svg>
- <div class="wrap">
-  <svg class="icon" viewBox="0 0 56 56" aria-hidden="true" style="color:var(--pop-green)"><path d="M12 50V22a16 16 0 0 1 32 0v28"/><path d="M20 50V24a8 8 0 0 1 16 0v26"/><path d="M6 50h44"/></svg>
-  <div class="measure">
-   <h2 id="h-bridge" style="font-size:1.9rem">When the space around you needs care too.</h2>
-   <p style="margin:0">A clear mind makes room for structure, rhythm and space. If your home is asking for help, Kim's organizing work lives at Simply Spacial.</p>
-  </div>
-  <a class="ghost" href="https://simplyspacial.com">Visit simplyspacial.com ↗</a>
+<svg class="div-band" viewBox="0 0 1440 48" preserveAspectRatio="none" style="background:linear-gradient(180deg,#0E1218,#0F2018)" aria-hidden="true"><path d="M0 24C240 44 480 4 720 24S1200 44 1440 24" stroke="#D4B377" stroke-opacity=".45" fill="none"/><circle cx="720" cy="24" r="2" fill="#D4B377"/></svg>
+<aside id="bridge" aria-labelledby="h-bridge">
+ <div class="band">
+  <div class="l"><div class="measure">
+   <p class="eyebrow">Next door</p>
+   <h2 id="h-bridge">When the space around you needs care too.</h2>
+   <p>A clear mind makes room for structure, rhythm and space. If your home is asking for help, Kim's organizing work lives at Simply Spacial.</p>
+   <a class="go" href="https://simplyspacial.com">Visit simplyspacial.com ↗</a>
+  </div></div>
+  <div class="r"><svg viewBox="0 0 400 220" aria-hidden="true"><g stroke="#C8C5A7" fill="none" stroke-width="1"><path d="M0 200H400" stroke="#D4B377" stroke-opacity=".7"/><path d="M150 200V90h100v110"/><path d="M150 90l50-40 50 40"/><rect x="185" y="120" width="30" height="34" fill="#F8CCAA" fill-opacity=".35"/><path d="M200 120v34M185 137h30" stroke-opacity=".6"/></g><path d="M180 200L120 220H280L220 200Z" fill="#F8CCAA" opacity=".12"/></svg></div>
  </div>
 </aside>
-
-<section id="signup" class="signup" aria-labelledby="h-signup"><svg class="gold b" aria-hidden="true" focusable="false" viewBox="0 0 400 200" style="width:min(36rem,90vw);height:auto;opacity:0.26" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M270.0 200.0L380.0 200.0" stroke-width=".6"/><path d="M268.9 187.8L377.3 168.7" stroke-width=".6"/><path d="M265.8 176.1L369.1 138.4" stroke-width=".6"/><path d="M260.6 165.0L355.9 110.0" stroke-width=".6"/><path d="M253.6 155.0L337.9 84.3" stroke-width=".6"/><path d="M245.0 146.4L315.7 62.1" stroke-width=".6"/><path d="M235.0 139.4L290.0 44.1" stroke-width=".6"/><path d="M223.9 134.2L261.6 30.9" stroke-width=".6"/><path d="M212.2 131.1L231.3 22.7" stroke-width=".6"/><path d="M200.0 130.0L200.0 20.0" stroke-width=".6"/><path d="M187.8 131.1L168.7 22.7" stroke-width=".6"/><path d="M176.1 134.2L138.4 30.9" stroke-width=".6"/><path d="M165.0 139.4L110.0 44.1" stroke-width=".6"/><path d="M155.0 146.4L84.3 62.1" stroke-width=".6"/><path d="M146.4 155.0L62.1 84.3" stroke-width=".6"/><path d="M139.4 165.0L44.1 110.0" stroke-width=".6"/><path d="M134.2 176.1L30.9 138.4" stroke-width=".6"/><path d="M131.1 187.8L22.7 168.7" stroke-width=".6"/><path d="M130.0 200.0L20.0 200.0" stroke-width=".6"/><path d="M150 200A50 50 0 0 1 250 200" stroke-width="0.90"/><path d="M136 200A64 64 0 0 1 264 200" stroke-width="0.78"/><path d="M60 55L60 65M55 60L65 60" stroke="#D4B377" stroke-width=".8"/><circle cx="60" cy="60" r="1.1" fill="#D4B377" stroke="none"/><path d="M340 36L340 44M336 40L344 40" stroke="#D4B377" stroke-width=".8"/><circle cx="340" cy="40" r="1.1" fill="#D4B377" stroke="none"/></svg>
- <div class="wrap">
-  <div class="measure">
-   <p class="eyebrow">Letters from the quiet</p>
-   <h2 id="h-signup">A short, gentle email course.</h2>
-   <p>A few slow letters on regulation, rhythm and getting to know yourself. Read them whenever you like.</p>
-   <div class="field">
-    <label for="em">Your email address</label>
-    <input id="em" type="email" autocomplete="email" placeholder="you@example.com">
-    <button class="btn" type="button">Begin</button>
-   </div>
-   <p style="font-size:.95rem;margin-top:1rem">Draft. Course length to be confirmed by Kim.</p>
+<svg class="div-band" viewBox="0 0 1440 48" preserveAspectRatio="none" style="background:linear-gradient(180deg,#183229,#3C2E49)" aria-hidden="true"><path d="M0 24C360 40 720 8 1080 28S1400 40 1440 24" stroke="#D4B377" stroke-opacity=".45" fill="none"/><circle cx="720" cy="24" r="2" fill="#D4B377"/></svg>
+<section id="signup" aria-labelledby="h-signup">
+ <div class="wrap grid">
+  <div><p class="eyebrow">Letters from the quiet</p><h2 id="h-signup">A short, gentle <em>email course.</em></h2><p class="measure">A few slow letters on regulation, rhythm and getting to know yourself. Read them whenever you like.</p></div>
+  <div class="letter"><span class="seal" aria-hidden="true">M</span>
+   <div class="field"><label for="em">Your email address</label><input id="em" type="email" autocomplete="email" placeholder="you@example.com"><button class="btn" type="button">Begin</button></div>
+   <p style="font-size:.95rem;margin:1rem 0 0">Draft. Course length to be confirmed by Kim.</p>
   </div>
  </div>
 </section>
 </main>
 
-<footer><svg class="gold tr" aria-hidden="true" focusable="false" viewBox="0 0 160 120" style="width:min(16rem,40vw);height:auto;opacity:0.3" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M10 100L50 60L90 80L140 20" stroke-width=".6" stroke-dasharray="1 4"/><circle cx="10" cy="100" r="1.4" fill="#B8975A" stroke="none"/><circle cx="50" cy="60" r="1.4" fill="#B8975A" stroke="none"/><circle cx="90" cy="80" r="1.4" fill="#B8975A" stroke="none"/><circle cx="140" cy="20" r="1.4" fill="#B8975A" stroke="none"/><path d="M140 15L140 25M135 20L145 20" stroke="#D4B377" stroke-width=".8"/><circle cx="140" cy="20" r="1.1" fill="#D4B377" stroke="none"/></svg>
+
+<footer><svg class="arc" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80Q720 -20 1440 80" stroke="#D4B377" stroke-opacity=".5" fill="none"/></svg><svg class="gold tr" aria-hidden="true" focusable="false" viewBox="0 0 160 120" style="width:min(16rem,40vw);height:auto;opacity:0.3" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M10 100L50 60L90 80L140 20" stroke-width=".6" stroke-dasharray="1 4"/><circle cx="10" cy="100" r="1.4" fill="#B8975A" stroke="none"/><circle cx="50" cy="60" r="1.4" fill="#B8975A" stroke="none"/><circle cx="90" cy="80" r="1.4" fill="#B8975A" stroke="none"/><circle cx="140" cy="20" r="1.4" fill="#B8975A" stroke="none"/><path d="M140 15L140 25M135 20L145 20" stroke="#D4B377" stroke-width=".8"/><circle cx="140" cy="20" r="1.1" fill="#D4B377" stroke="none"/></svg>
  <div class="wrap">
   <div class="cols">
    <div><p class="brand" style="margin:0 0 .5rem">Simply Spacial <em>Mind</em></p><p>A quiet place to relax and come home to yourself.</p></div>
@@ -329,8 +445,6 @@ html.light .gold{opacity:.12!important;filter:brightness(.6)}
 <script>
 const r=document.documentElement,m=document.getElementById('mode');
 m.onclick=()=>{const on=r.classList.toggle('light');m.setAttribute('aria-pressed',on);m.textContent=on?'Darker reading':'Lighter reading'};
-const b=document.getElementById('breath'),bb=document.getElementById('breathBtn');
-bb.onclick=()=>{const on=b.classList.toggle('on');bb.setAttribute('aria-pressed',on);bb.textContent=on?'Stop the breathing guide':'Show a breathing guide (motion)'};
 </script>
 </body>
 </html>
