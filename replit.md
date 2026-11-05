@@ -22,12 +22,14 @@ Simply Spacial is a mental health and neurodivergence wellness platform, initial
 
 ## Where things live
 
-- `site/index.html` is the current Night Garden website and source of truth for Preview and publishing.
-- The Simply Spacial web workflow uses Vite with `site/` as its root. Its static build still outputs to `artifacts/simply-spacial/dist/public`.
+- Root `index.html` is the Night Garden website and source of truth for Preview and the web artifact's production build. It is tracked at the same path as the connected GitHub repository.
+- The Simply Spacial web workflow uses Vite with the repository as its root. Its static build still outputs to `artifacts/simply-spacial/dist/public`.
+- `site/index.html` is the earlier published copy, not the active Preview source.
 - The earlier React wellness app remains under `artifacts/simply-spacial/src/` for reference, but is not the active website.
 
 ## Architecture decisions
 
+- GitHub's root homepage is canonical so normal Git Pull updates Preview without copying files. The formerly independent Replit and GitHub histories have been joined without discarding either; do not force-push or reset to replace one with the other.
 - The first version stores personal entries in the user's browser, without accounts or server-side health data. This keeps the initial experience usable without collecting sensitive information on the server; it is not cross-device storage or a backup.
 - Position the product as wellness support, not diagnosis, clinical treatment, or a crisis service.
 - Check-ins and tool prompts are optional. Avoid streak pressure, clinical interpretations, or fabricated personal history.

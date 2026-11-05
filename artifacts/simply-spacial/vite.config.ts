@@ -59,8 +59,8 @@ export default defineConfig({
     },
     dedupe: ['react', 'react-dom'],
   },
-  // Use the same source as the published Night Garden website.
-  root: path.resolve(import.meta.dirname, '..', '..', 'site'),
+  // GitHub owns the root homepage, so Git Pull updates Preview directly.
+  root: path.resolve(import.meta.dirname, '..', '..'),
   build: {
     outDir: path.resolve(import.meta.dirname, 'dist/public'),
     emptyOutDir: true,
