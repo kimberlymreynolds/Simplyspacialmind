@@ -2,7 +2,8 @@ modules = ["nodejs-24", "python-base-3.13"]
 
 [deployment]
 deploymentTarget = "static"
-publicDir = "site"
+build = ["node", "scripts/src/build-site.mjs"]
+publicDir = "artifacts/simply-spacial/dist/public"
 
 [workflows]
 runButton = "Project"

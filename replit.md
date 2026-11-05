@@ -24,7 +24,8 @@ Simply Spacial is a mental health and neurodivergence wellness platform, initial
 
 - Root `index.html` is the Night Garden website and source of truth for Preview and the web artifact's production build. It is tracked at the same path as the connected GitHub repository.
 - The Simply Spacial web workflow uses Vite with the repository as its root. Its static build still outputs to `artifacts/simply-spacial/dist/public`.
-- `site/index.html` is the earlier published copy, not the active Preview source.
+- `site/index.html` is an older copy, not an active Preview or publishing source.
+- Static publishing uses `scripts/src/build-site.mjs` to prepare the root homepage in `artifacts/simply-spacial/dist/public`. Do not point publishing back to the old `site/` folder.
 - The earlier React wellness app remains under `artifacts/simply-spacial/src/` for reference, but is not the active website.
 
 ## Architecture decisions
