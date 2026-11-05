@@ -59,7 +59,8 @@ export default defineConfig({
     },
     dedupe: ['react', 'react-dom'],
   },
-  root: path.resolve(import.meta.dirname),
+  // Use the same source as the published Night Garden website.
+  root: path.resolve(import.meta.dirname, '..', '..', 'site'),
   build: {
     outDir: path.resolve(import.meta.dirname, 'dist/public'),
     emptyOutDir: true,

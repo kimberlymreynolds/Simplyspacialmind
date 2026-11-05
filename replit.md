@@ -1,4 +1,4 @@
-# Simply Spacial
+# Simply Spacial Mind
 
 Simply Spacial is a mental health and neurodivergence wellness platform, initially focused on daily wellness tools.
 
@@ -22,7 +22,9 @@ Simply Spacial is a mental health and neurodivergence wellness platform, initial
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `site/index.html` is the current Night Garden website and source of truth for Preview and publishing.
+- The Simply Spacial web workflow uses Vite with `site/` as its root. Its static build still outputs to `artifacts/simply-spacial/dist/public`.
+- The earlier React wellness app remains under `artifacts/simply-spacial/src/` for reference, but is not the active website.
 
 ## Architecture decisions
 
@@ -36,7 +38,7 @@ Optional mood-and-energy check-ins, a personal check-in journal, grounding and b
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Keep Preview matched to the live Night Garden website. Do not replace it with the earlier wellness app.
 
 ## Gotchas
 
