@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simply Spacial Mind · Night Garden v8 direction proof (draft, not published)</title>
+<title>Simply Spacial Mind · Night Garden v9</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Lexend:wght@300;400;500&family=Literata:ital,opsz,wght@0,7..72,400;1,7..72,400&display=swap" rel="stylesheet">
 <style>
@@ -306,6 +306,81 @@ main .btn,#bridge .go,footer .toggle{font-family:Inter,system-ui,sans-serif;font
 .field input{font-family:Inter,system-ui,sans-serif;font-weight:400}
 footer .cols a{font-family:Inter,system-ui,sans-serif;font-weight:600}
 </style>
+<style>
+/* v9 below-hero only. Do not target the hero, its nav, logo, headline, lantern, or buttons. */
+#signup,#pause,#ways,#rings,#topics,#story,#bridge,#explore{position:relative;overflow:hidden}
+#signup{padding:4.75rem 0 4.25rem;background:linear-gradient(180deg,#35233A 0%,#3B2738 58%,#3C2E49 100%);text-align:left}
+#pause{padding:1.65rem 0;background:#0E1218;text-align:left}
+#ways{padding:4.6rem 0;background:radial-gradient(32rem 22rem at 12% 80%,#374E4966,transparent 70%),linear-gradient(180deg,#14241F 0%,#183229 100%);text-align:left}
+#rings{padding:4.6rem 0;background:radial-gradient(28rem 24rem at 80% 20%,#52587155,transparent 70%),linear-gradient(180deg,#1E2430 0%,#252B38 55%,#2B3344 100%);text-align:left}
+#topics{padding:4.8rem 0;background:linear-gradient(165deg,#1A1420 0%,#2A1F2E 42%,#321F2C 100%);text-align:left}
+#story{padding:4.6rem 0;background:#252B38;text-align:left}
+#bridge{padding:3.2rem 0;background:linear-gradient(180deg,#0F2018,#152A21);text-align:left}
+#explore{padding:3.4rem 0 3.6rem;background:linear-gradient(180deg,#3C2E49,#3B2738);text-align:left}
+#signup h2,#pause h2,#ways h2,#rings h2,#topics h2,#story h2,#bridge h2,#explore h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0}
+#signup h2{font-size:clamp(3.15rem,6.4vw,6rem);line-height:.96;max-width:9ch;margin:0}
+#pause h2{font-size:clamp(1.85rem,3vw,2.7rem);line-height:1.12;margin:0}
+#ways h2{font-size:clamp(2.5rem,4.6vw,4.1rem);line-height:1.05;max-width:14ch;margin:0}
+#rings h2,#topics .feature h2{font-size:clamp(2.5rem,4.8vw,4.4rem);line-height:1.04;max-width:16ch;margin:0 0 .7rem}
+#story h2{font-size:clamp(2.8rem,5.5vw,4.8rem);line-height:1.02;max-width:12ch;margin:0 0 1rem}
+#bridge h2,#explore h2{font-size:clamp(2rem,3.4vw,2.8rem);line-height:1.12;margin:0 0 .6rem}
+#signup .spread,#ways .entry,#rings .layout,#topics .feature,#bridge .row{display:grid;gap:2.5rem 3.5rem;align-items:start}
+#signup .spread{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:end}
+#ways .entry{grid-template-columns:minmax(0,1.15fr) minmax(16rem,.85fr);margin-top:2.2rem}
+#rings .layout{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center}
+#topics .feature{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);margin-bottom:2.5rem}
+#bridge .row{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+#pause .row{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:1.5rem 3rem;align-items:center}
+#pause .row p,#story .measure p:last-child,#bridge p{margin:0}
+.lead{font-size:1.25rem;line-height:1.6;margin:0 0 1rem;max-width:42ch}
+.jump{list-style:none;margin:1.4rem 0 0;padding:0;display:flex;flex-direction:column;gap:.35rem}
+.jump a,.explore a,#bridge .go,.textlink{font-family:Inter,system-ui,sans-serif;font-weight:600;font-synthesis:none;text-decoration-thickness:1px;text-underline-offset:.28em}
+.jump a{text-decoration:none;border-bottom:1px solid #D4B37788;width:max-content;max-width:100%}
+.ladder{display:flex;flex-direction:column;gap:.75rem}
+.rung{border:1px solid #D4B37755;background:#0F2018aa;padding:1rem 1.15rem 1rem 1.2rem;margin:0}
+.rung p{margin:0}
+.rung:nth-child(1){width:78%}
+.rung:nth-child(2){width:89%;margin-left:6%}
+.rung:nth-child(3){width:100%}
+.side-note{border-top:1px solid #D4B37755;padding:1.35rem 0}
+.side-note h3,.support h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-style:normal;font-synthesis:none;font-size:clamp(1.55rem,2.2vw,2rem);line-height:1.15;margin:0 0 .45rem}
+.side-note p,.support p,.qualify,figcaption{margin:0}
+.qualify,figcaption{margin-top:.9rem;max-width:46ch}
+#rings svg{display:block;width:min(34rem,100%);height:auto;color:#D4B377}
+#rings figcaption{color:var(--ink)}
+.defs{list-style:none;margin:1.25rem 0 0;padding:0;display:flex;flex-direction:column;gap:1.1rem}
+.defs li{display:block;border-top:1px solid #D4B37744;padding-top:.85rem}
+.defs strong{display:block;margin:0 0 .3rem;font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-style:normal;font-synthesis:none;font-size:1.45rem;line-height:1.15}
+.defs span{display:block}
+.feature-copy p{max-width:48ch}
+.supports{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:1.5rem 2rem;align-items:start}
+.support{border-top:1px solid #D4B37755;padding-top:1.1rem}
+.supports .stack{display:flex;flex-direction:column;gap:1.25rem}
+details{margin-top:.8rem}
+summary{cursor:pointer;font-family:Inter,system-ui,sans-serif;font-weight:600;font-size:1.125rem;line-height:1.4}
+summary .sum-title{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-style:normal;font-synthesis:none;font-size:1.7rem;line-height:1.15;display:block;margin-bottom:.2rem}
+details p{margin:.75rem 0 0;max-width:62ch}
+#story .measure{max-width:38rem}
+#bridge .house{width:9.5rem;height:auto;color:#C8C5A7}
+#explore .contents{list-style:none;margin:1.1rem 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.35rem 2.5rem}
+#explore .contents a{display:flex;justify-content:space-between;gap:.35rem 1rem;flex-wrap:wrap;padding:.7rem 0;border-bottom:1px solid #D4B37744;text-decoration:none}
+#explore .contents span{font-weight:400;opacity:.8}
+footer .blurb{max-width:36ch}
+@media(max-width:860px){
+  #signup .spread,#ways .entry,#rings .layout,#topics .feature,#bridge .row,#pause .row,.supports,#explore .contents,.defs li{grid-template-columns:1fr}
+  .rung,.rung:nth-child(1),.rung:nth-child(2),.rung:nth-child(3){width:100%;margin-left:0}
+  #bridge .house{width:7rem}
+  #signup h2{max-width:none}
+}
+html.light #signup,html.light #topics,html.light #explore{background:#E9DCCB;color:#35233A}
+html.light #ways,html.light #rings,html.light #bridge{background:#E2D3C1;color:#35233A}
+html.light #pause,html.light #story,html.light footer{background:#E2D3C1!important;color:#35233A}
+html.light #signup,html.light #ways,html.light #rings,html.light #topics,html.light #story,html.light #bridge,html.light #explore,html.light #pause,html.light footer,html.light footer p,html.light footer a,html.light #rings figcaption,html.light .rung{color:#35233A}
+html.light .rung{background:#E9DCCB;border-color:#35233A33}
+html.light #rings svg,html.light #bridge .house{color:#35233A}
+html.light .jump a,html.light #explore .contents a,html.light .side-note,html.light .support,html.light .defs li{border-color:#35233A33}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -349,106 +424,192 @@ footer .cols a{font-family:Inter,system-ui,sans-serif;font-weight:600}
  </div>
 </header>
 
-<main id="main" class="v8">
-<section id="invite" aria-labelledby="h-inv">
- <svg class="moon" viewBox="0 0 880 440" aria-hidden="true"><g class="gold-line" stroke-width=".8"><circle cx="440" cy="440" r="220" opacity=".9"/><circle cx="440" cy="440" r="270" opacity=".5"/><circle cx="440" cy="440" r="330" opacity=".3" stroke-dasharray="2 8"/><path d="M0 438H880" opacity=".6"/></g></svg>
- <div class="wrap">
-  <p class="eyebrow">An invitation</p>
-  <blockquote>Simply Spacial keeps it simple.<br><em>Here, we go deeper.</em></blockquote>
-  <div class="measure">
-   <h2 id="h-inv">Come as you are. Stay as long as you like.</h2>
-   <p>This is a quiet room for the parts of you that rarely get time. Your feelings. Your patterns. Your deepest thoughts.</p>
-   <p>We slow down first, so the body can relax and come off alert. From there, awareness comes more easily. You notice. You understand. You choose.</p>
+<main id="main" class="v9">
+<section id="signup" aria-labelledby="h-signup">
+ <div class="wrap spread">
+  <div>
+   <p class="eyebrow">What this room is for</p>
+   <h2 id="h-signup">Regulation before education.</h2>
+  </div>
+  <div>
+   <p class="lead">You can know what to do and still struggle to do it. Simply Spacial Mind explores regulation, relationships, and the patterns we inherit—with structure that makes those ideas easier to work with.</p>
+   <p>The organizing work gives a room an outside order when the inside one will not hold. Mind uses that same method for inner and relational life. Settle the system enough to think, then make sense of it. This is lived experience and education. It is not therapy, and it does not promise an outcome.</p>
+   <ul class="jump">
+    <li><a href="#ways">Start with what you are navigating</a></li>
+    <li><a href="#rings">See how access can be made explicit</a></li>
+    <li><a href="#topics">Read the ideas on this page</a></li>
+   </ul>
   </div>
  </div>
 </section>
-<div style="position:relative"><span class="div-horizon"></span></div>
+<section id="pause" aria-labelledby="h-pause">
+ <div class="wrap row">
+  <div>
+   <p class="eyebrow">Optional, and only for you</p>
+   <h2 id="h-pause">Write one fact, not a verdict.</h2>
+  </div>
+  <p>A fact is what happened. A verdict is the meaning stacked on top of it. If you want a place to start, write one fact and stop there. You do not have to tell anyone anything.</p>
+ </div>
+</section>
 <section id="ways" aria-labelledby="h-ways">
  <div class="wrap">
-  <div class="head"><p class="eyebrow">Three ways in</p><h2 id="h-ways">Start with the one that feels gentle today.</h2></div>
-  <div class="windows">
-   <article class="win"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 30c4-8 8 8 12 0s8 8 12 0 8 8 4 0" stroke="#CD9FA0"/><circle cx="24" cy="16" r="3" stroke="#D4B377"/></svg><p class="num">I · REFLECT</p><h3>Notice what is there</h3><p>Short prompts and quiet writing for the moments when something stirs. Awareness, one small light at a time.</p></article>
-   <article class="win"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path stroke="#F2C1A3" d="M18 30c-3-3-5-6-5-10a11 11 0 0 1 22 0c0 4-2 7-5 10v4H18z"/><path d="M19 39h10M21 43h6"/></svg><p class="num">II · UNDERSTAND</p><h3>Learn the why</h3><p>Plain-language lessons on regulation, rhythm and the nervous system, so your reactions start to make sense.</p></article>
-   <article class="win"><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M30 10a14 14 0 1 0 8 22A12 12 0 0 1 30 10z" stroke="#779273"/></svg><p class="num">III · RELAX</p><h3>Let the body rest</h3><p>Low-stimulation pauses, breath and sound for evenings and hard days. Nothing to finish. Nothing to fix.</p></article>
+  <p class="eyebrow">Three entry points</p>
+  <h2 id="h-ways">Start with what you are navigating.</h2>
+  <div class="entry">
+   <div>
+    <p class="kicker eyebrow">Regulation</p>
+    <h3>Match support to the capacity you actually have.</h3>
+    <p>More explanation often fails when you are already flooded. A regulation ladder is external structure for that moment: fewer demands first, then one piece of order, then learning if there is room. The bands are a picture of that sequence, not a named scale and not a prescription.</p>
+    <div class="ladder" role="group" aria-label="Visual introduction to sequencing regulation.">
+     <div class="rung"><p>When you are flooded, reduce input. This is not the moment for a lesson.</p></div>
+     <div class="rung"><p>When a little capacity returns, add one external structure: a list, a boundary, a single next step.</p></div>
+     <div class="rung"><p>When you are steadier, there is room to name what happened and to learn.</p></div>
+    </div>
+    <p class="qualify">A visual introduction only. If you have a care team, they still lead any treatment.</p>
+   </div>
+   <div>
+    <article class="side-note">
+     <p class="kicker eyebrow">Relationships</p>
+     <h3>Make access explicit.</h3>
+     <p>When safety is only a feeling, closeness can follow a role or a hope instead of behavior. Rings are a way to put access where you can see it: who is close, who you are still learning, who stays at a distance.</p>
+     <p><a class="textlink" href="#rings">Look at the rings</a></p>
+    </article>
+    <article class="side-note" id="patterns">
+     <p class="kicker eyebrow">Generational patterns</p>
+     <h3>Name what was passed down as behavior.</h3>
+     <p>A generational pattern is a wound that never got words, passed down as behavior. Naming the chain is a way to see it. It is not a verdict on a family.</p>
+     <p><a class="textlink" href="#chain">Read the chain</a></p>
+    </article>
+   </div>
   </div>
  </div>
 </section>
-<svg class="div-band" viewBox="0 0 1440 48" preserveAspectRatio="none" style="background:linear-gradient(180deg,#2B3344,#14241F)" aria-hidden="true"><path d="M0 24C240 4 480 44 720 24S1200 4 1440 24" stroke="#D4B377" stroke-opacity=".5" fill="none"/><circle cx="720" cy="24" r="2.2" fill="#D4B377"/></svg>
+<section id="rings" aria-labelledby="h-rings">
+ <div class="wrap layout">
+  <figure>
+   <svg viewBox="0 0 520 520" role="img" aria-labelledby="ringTitle ringDesc">
+    <title id="ringTitle">Three descriptive rings of access</title>
+    <desc id="ringDesc">Concentric rings. Distance sits in the outer band, Still learning in the middle band, and You in the center. The key beside the drawing names the inner ring Earned closeness. A visual introduction, not a score.</desc>
+    <circle cx="260" cy="270" r="220" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="260" cy="270" r="148" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="260" cy="270" r="78" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <text x="260" y="86" text-anchor="middle" fill="currentColor" font-family="Inter, sans-serif" font-size="18" font-weight="600">Distance</text>
+    <text x="260" y="158" text-anchor="middle" fill="currentColor" font-family="Inter, sans-serif" font-size="16" font-weight="600">Still learning</text>
+    <text x="260" y="276" text-anchor="middle" fill="currentColor" font-family="Inter, sans-serif" font-size="18" font-weight="600">You</text>
+   </svg>
+   <figcaption>A visual introduction. Not a test, a ranking, or a fixed set of levels.</figcaption>
+  </figure>
+  <div>
+   <p class="eyebrow">Relationships</p>
+   <h2 id="h-rings">Access can be decided from behavior, not only from a feeling.</h2>
+   <p>When you cannot tell who is safe from the inside, advice that says "trust your gut" does not give you a structure. Rings are that structure. Closeness follows what you can count on. A role, a job, or a long history is not the same thing as access.</p>
+   <ul class="defs">
+    <li><strong>Distance</strong><span>People who stay toward the outside, so hope or obligation does not outrun what you know.</span></li>
+    <li><strong>Still learning</strong><span>People whose behavior you are watching before closeness changes.</span></li>
+    <li><strong>Earned closeness</strong><span>People whose actions, over time, are what the structure can count.</span></li>
+   </ul>
+   <p class="qualify">The words on the drawing describe the idea. They are not an official scoring key. A fact is what someone did. The story about what it means can wait.</p>
+  </div>
+ </div>
+</section>
 <section id="topics" aria-labelledby="h-topics">
- <div class="wrap grid">
-  <div class="side"><p class="eyebrow">Rooms to explore</p><h2 id="h-topics">Go where your attention is <em>already going.</em></h2><p>Five rooms in the garden. Each glows a little differently.</p></div>
-  <ul class="map">
-   <li><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M18 30c-3-3-5-6-5-10a11 11 0 0 1 22 0c0 4-2 7-5 10v4H18z"/><path d="M19 39h10M21 43h6"/></svg><h3>Generational patterns</h3><p>Noticing what was handed down, and what you want to carry forward.</p></li>
-   <li><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="18" cy="24" r="9"/><circle cx="30" cy="24" r="9"/></svg><h3>Relationships</h3><p>Connection, needs and repair, including the Autistic Ledger: a way to see the give and take that often goes unseen.</p></li>
-   <li><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 24c5-12 9-12 14 0s9 12 14 0 9-12 12 0"/></svg><h3>Bipolar</h3><p>Living with rhythm and change, alongside the care team you already have.</p></li>
-   <li><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6v36M10 16c6 0 8 8 14 8s8-8 14-8M10 32c6 0 8-8 14-8s8 8 14 8"/></svg><h3>Emotions</h3><p>Naming what you feel, where it lives in the body, and what it is asking for.</p></li>
-   <li><svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 42V20M24 26c-8 0-12-6-12-14 8 0 12 6 12 14zM24 22c6 0 10-5 10-11-6 0-10 5-10 11z"/></svg><h3>Wellness</h3><p>Water, rest, food and time off. The quiet basics a calm mind leans on.</p></li>
+ <div class="wrap">
+  <div class="feature">
+   <div>
+    <p class="eyebrow">On this page</p>
+    <h2 id="h-topics">You are watching chemistry and calling it character.</h2>
+   </div>
+   <div class="feature-copy">
+    <p>Some of what gets called character is rhythm, energy, and mood moving on their own clock. Naming that can be literacy. It is not a diagnosis of you, and it does not tell anyone to start, stop, or change treatment.</p>
+    <p>Bipolar literacy here means language for rhythm and change, kept beside the care team a person already has. Education from lived experience is not a treatment plan.</p>
+    <details>
+     <summary>More of this idea, on this page</summary>
+     <p>The line is a way to separate a person from a swing in energy or mood. It is not a medical fact about every reader, and it is not an instruction about medication. If a care team is already involved, this page does not replace them. Go at your own pace. You do not have to tell anyone anything.</p>
+    </details>
+   </div>
+  </div>
+  <div class="supports">
+   <article class="support" id="chain">
+    <h3>A wound that never got words</h3>
+    <p>A generational pattern is a wound that never got words, passed down as behavior. Seeing the chain is a way to notice what you were handed. It is not a verdict on the people who handed it to you.</p>
+    <details>
+     <summary>More on inherited patterns</summary>
+     <p>You can name a behavior without publishing a family story. The useful question is what you want to carry forward, and what you can leave unnamed in public. Nothing on this page asks you to confront anyone.</p>
+    </details>
+   </article>
+   <div class="stack">
+    <article class="support" id="ledger">
+     <h3>The Autistic Ledger</h3>
+     <p>The Autistic Ledger is a way to see give and take that often goes unseen: what was offered, what came back, and what never got counted. It is not a product or a score.</p>
+     <details>
+      <summary>More on give and take</summary>
+      <p>Putting the exchange where you can look at it is the same kind of external structure as the rings. It does not diagnose anyone, and it does not require you to share the tally.</p>
+     </details>
+    </article>
+    <article class="support" id="capacity">
+     <h3>Protect and restore capacity</h3>
+     <p>Emotions are information about capacity, not a test you can fail. Rest, food, water, and time off are ways to protect and restore it. They are basics, not a treatment and not a product.</p>
+     <details>
+      <summary>More on regulation and capacity</summary>
+      <p>When capacity is low, the regulation ladder comes before insight. Match the demand to what is left. Learning can wait until there is room for it. That sequence is the method. It is not a promise that you will feel a certain way.</p>
+     </details>
+    </article>
+   </div>
+  </div>
+ </div>
+</section>
+<section id="story" aria-labelledby="h-story">
+ <div class="wrap">
+  <div class="measure">
+   <p class="eyebrow">From Kim</p>
+   <h2 id="h-story">A welcome, not a memoir.</h2>
+   <p>Kim's organizing practice lives at Simply Spacial. This page is Mind: external structure for regulation, relationships, and the patterns people inherit.</p>
+   <p>Come in at your own pace. You do not have to tell anyone anything. What you read here is lived experience and education. It is not therapy, and it does not replace a professional or any care you already have.</p>
+  </div>
+ </div>
+</section>
+<aside id="bridge" aria-labelledby="h-bridge">
+ <div class="wrap row">
+  <div class="measure">
+   <p class="eyebrow">Sister site</p>
+   <h2 id="h-bridge">The home work lives next door.</h2>
+   <p>Simply Spacial is the organizing practice. Mind stays with regulation, relationships, and inherited patterns. Same kind of external structure, different room.</p>
+   <p><a class="go" href="https://simplyspacial.com">Visit simplyspacial.com</a></p>
+  </div>
+  <svg class="house" viewBox="0 0 200 140" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 118h168"/><path d="M48 118V62h104v56"/><path d="M48 62l52-36 52 36"/><rect x="86" y="78" width="28" height="24"/></g></svg>
+ </div>
+</aside>
+<section id="explore" aria-labelledby="h-explore">
+ <div class="wrap">
+  <p class="eyebrow">Choose a next step</p>
+  <h2 id="h-explore">Explore from here.</h2>
+  <ul class="contents">
+   <li><a href="#ways">What you are navigating <span>Regulation, relationships, patterns</span></a></li>
+   <li><a href="#rings">The rings <span>Access, made explicit</span></a></li>
+   <li><a href="#topics">Read on this page <span>Patterns, ledger, capacity</span></a></li>
+   <li><a href="#story">From Kim <span>A welcome</span></a></li>
+   <li><a href="#pause">One fact <span>Optional, private</span></a></li>
+   <li><a href="https://simplyspacial.com">Organizing <span>simplyspacial.com</span></a></li>
   </ul>
  </div>
 </section>
-<svg class="div-band" viewBox="0 0 1440 48" preserveAspectRatio="none" style="background:linear-gradient(180deg,#1A2C28,#1A1420)" aria-hidden="true"><path d="M0 24C360 8 720 40 1080 20S1400 8 1440 24" stroke="#D4B377" stroke-opacity=".45" fill="none"/><circle cx="720" cy="24" r="2" fill="#D4B377"/></svg>
-<section id="story" aria-labelledby="h-story">
- <div class="full">
-  <div class="left"><div class="arch" role="img" aria-label="Placeholder for a portrait of Kim">Portrait of Kim (placeholder)</div></div>
-  <div class="right"><div class="measure">
-   <p class="eyebrow">Lived, not just learned</p>
-   <p class="pull">An organized house was only part of what I needed.</p>
-   <h2 id="h-story">Why I built the deeper room.</h2>
-   <p>I spent fifteen years helping people organize their homes. Along the way I learned that an organized house was only part of what I needed.</p>
-   <p>I live with mental health challenges. What helped me most was slowing down, learning to regulate, and listening to myself with more kindness.</p>
-   <p><em>Placeholder story. Kim to rewrite in her own words.</em></p>
-  </div></div>
- </div>
-</section>
-<svg class="div-band" viewBox="0 0 1440 48" preserveAspectRatio="none" style="background:linear-gradient(180deg,#321F2C,#0E1218)" aria-hidden="true"><path d="M0 24H1440" stroke="#D4B377" stroke-opacity=".4" fill="none"/><circle cx="720" cy="24" r="2" fill="#D4B377"/></svg>
-<section id="pause" aria-labelledby="h-pause">
- <svg class="sky" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="#D4B377"><circle cx="160" cy="120" r="1.6"/><circle cx="300" cy="80" r="1"/><circle cx="420" cy="170" r="1.4"/><circle cx="1100" cy="110" r="1.8"/><circle cx="1240" cy="190" r="1.1"/><circle cx="1320" cy="90" r="1.4"/><circle cx="220" cy="560" r="1.2"/><circle cx="1180" cy="580" r="1.5"/><circle cx="700" cy="70" r="1"/></g><g stroke="#B8975A" stroke-opacity=".5" stroke-width=".6" fill="none" stroke-dasharray="1 4"><path d="M160 120L300 80L420 170"/><path d="M1100 110L1240 190L1320 90"/></g></svg>
- <div class="wrap" style="z-index:2">
-  <p class="eyebrow">A question to sit with</p>
-  <h2 id="h-pause" class="q">What is one thing that feels <em>a little softer</em> right now?</h2>
-  <div class="measure"><p>No need to answer out loud. Let it stay with you as you read on, or come back to it later.</p></div>
- </div>
-</section>
-<svg class="div-band" viewBox="0 0 1440 48" preserveAspectRatio="none" style="background:linear-gradient(180deg,#0E1218,#0F2018)" aria-hidden="true"><path d="M0 24C240 44 480 4 720 24S1200 44 1440 24" stroke="#D4B377" stroke-opacity=".45" fill="none"/><circle cx="720" cy="24" r="2" fill="#D4B377"/></svg>
-<aside id="bridge" aria-labelledby="h-bridge">
- <div class="band">
-  <div class="l"><div class="measure">
-   <p class="eyebrow">Next door</p>
-   <h2 id="h-bridge">When the space around you needs care too.</h2>
-   <p>A clear mind makes room for structure, rhythm and space. If your home is asking for help, Kim's organizing work lives at Simply Spacial.</p>
-   <a class="go" href="https://simplyspacial.com">Visit simplyspacial.com ↗</a>
-  </div></div>
-  <div class="r"><svg viewBox="0 0 400 220" aria-hidden="true"><g stroke="#C8C5A7" fill="none" stroke-width="1"><path d="M0 200H400" stroke="#D4B377" stroke-opacity=".7"/><path d="M150 200V90h100v110"/><path d="M150 90l50-40 50 40"/><rect x="185" y="120" width="30" height="34" fill="#F8CCAA" fill-opacity=".35"/><path d="M200 120v34M185 137h30" stroke-opacity=".6"/></g><path d="M180 200L120 220H280L220 200Z" fill="#F8CCAA" opacity=".12"/></svg></div>
- </div>
-</aside>
-<svg class="div-band" viewBox="0 0 1440 48" preserveAspectRatio="none" style="background:linear-gradient(180deg,#183229,#3C2E49)" aria-hidden="true"><path d="M0 24C360 40 720 8 1080 28S1400 40 1440 24" stroke="#D4B377" stroke-opacity=".45" fill="none"/><circle cx="720" cy="24" r="2" fill="#D4B377"/></svg>
-<section id="signup" aria-labelledby="h-signup">
- <div class="wrap grid">
-  <div><p class="eyebrow">Letters from the quiet</p><h2 id="h-signup">A short, gentle <em>email course.</em></h2><p class="measure">A few slow letters on regulation, rhythm and getting to know yourself. Read them whenever you like.</p></div>
-  <div class="letter"><span class="seal" aria-hidden="true">M</span>
-   <div class="field"><label for="em">Your email address</label><input id="em" type="email" autocomplete="email" placeholder="you@example.com"><button class="btn" type="button">Begin</button></div>
-   <p style="font-size:1.125rem;margin:1rem 0 0">Draft. Course length to be confirmed by Kim.</p>
-  </div>
- </div>
-</section>
 </main>
-
-
-<footer><svg class="arc" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80Q720 -20 1440 80" stroke="#D4B377" stroke-opacity=".5" fill="none"/></svg><svg class="gold tr" aria-hidden="true" focusable="false" viewBox="0 0 160 120" style="width:min(16rem,40vw);height:auto;opacity:0.3" fill="none" stroke="#B8975A" stroke-width="1" stroke-linecap="round"><path d="M10 100L50 60L90 80L140 20" stroke-width=".6" stroke-dasharray="1 4"/><circle cx="10" cy="100" r="1.4" fill="#B8975A" stroke="none"/><circle cx="50" cy="60" r="1.4" fill="#B8975A" stroke="none"/><circle cx="90" cy="80" r="1.4" fill="#B8975A" stroke="none"/><circle cx="140" cy="20" r="1.4" fill="#B8975A" stroke="none"/><path d="M140 15L140 25M135 20L145 20" stroke="#D4B377" stroke-width=".8"/><circle cx="140" cy="20" r="1.1" fill="#D4B377" stroke="none"/></svg>
+<footer>
  <div class="wrap">
   <div class="cols">
-   <div><p class="brand" style="margin:0 0 .5rem">Simply Spacial <em>Mind</em></p><p>A quiet place to relax and come home to yourself.</p></div>
-   <div><p><a href="#ways">Ways in</a><br><a href="#topics">Topics</a><br><a href="#story">Kim's story</a><br><a href="https://simplyspacial.com">Simply Spacial organizing ↗</a></p></div>
+   <div><p class="brand" style="margin:0 0 .5rem">Simply Spacial <em>Mind</em></p><p class="blurb">External structure for regulation, relationships, and inherited patterns.</p></div>
+   <div><p><a href="#ways">Ways in</a><br><a href="#topics">Topics</a><br><a href="#story">Kim's story</a><br><a href="#rings">Rings</a><br><a href="https://simplyspacial.com">Simply Spacial organizing</a></p></div>
    <div><svg class="icon" viewBox="0 0 28 28" width="28" height="28" aria-hidden="true" style="color:var(--pop-mag)"><path d="M14 23C8 19 4 15 4 10.5 4 7.5 6.3 5 9.2 5c2 0 3.8 1.2 4.8 3 1-1.8 2.8-3 4.8-3C21.7 5 24 7.5 24 10.5 24 15 20 19 14 23Z"/></svg><p>With heart, from Kim.</p></div>
   </div>
   <p class="a11y">Reading comfort: <button class="toggle" id="mode" aria-pressed="false">Lighter reading</button></p>
   <div class="note">
-   <p><strong>Content note:</strong> some pages talk about family patterns, mood and hard emotions. Go at your own pace.</p>
+   <p><strong>Content note:</strong> some of this page talks about family patterns, mood, and hard emotions. Go at your own pace.</p>
    <p>Simply Spacial Mind shares lived experience and education. It is not therapy or medical advice, and it does not replace care from a professional.</p>
    <p>If you are in crisis in the US, call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline). Outside the US, contact your local emergency number.</p>
   </div>
  </div>
 </footer>
+
 <script>
 const r=document.documentElement,m=document.getElementById('mode');
 m.onclick=()=>{const on=r.classList.toggle('light');m.setAttribute('aria-pressed',on);m.textContent=on?'Darker reading':'Lighter reading'};
