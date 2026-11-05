@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Simply Spacial Mind · Night Garden v8 direction proof (draft, not published)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Literata:ital,opsz,wght@0,7..72,400;1,7..72,400&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Lexend:wght@300;400;500&family=Literata:ital,opsz,wght@0,7..72,400;1,7..72,400&display=swap" rel="stylesheet">
 <style>
 /* Palette: Kim's exact pins. Pin 1 Deep Aubergine & Dark Emerald: #0F2018 #183229 #152A21 #C8C5A7 #3B2738 #3C2E49.
    Pin 3 Gray Magenta & Dark Green: #42303D #779273 #7E6377. Pin 2 Aura: #374E49 #35233A #CBB9A3. Pin 4 Sunset Snow: #F8CCAA #F2C1A3.
@@ -298,6 +298,13 @@ main section,main aside{position:relative;overflow:hidden;isolation:isolate}
 footer{background:radial-gradient(40rem 16rem at 50% 0%,#52587155,transparent 70%),#12161F!important;border-top:1px solid #D4B37744;position:relative}
 footer .arc{display:block;width:100%;height:5rem;margin-top:-4rem}
 html.light #invite,html.light #ways,html.light #topics,html.light #story,html.light #pause,html.light #bridge,html.light #signup{filter:none}
+/* Below-hero type only. Hero keeps Cormorant Garamond, Literata, and Lexend, including its nav, logo, headline, and buttons. */
+main,footer{font-family:Inter,system-ui,sans-serif;font-weight:400;font-size:1.125rem;line-height:1.6}
+main h2,main h3,main h2 em,main h3 em,#invite blockquote,#invite blockquote em,#story .pull,#pause .q,#pause .q em,footer .brand,footer .brand em,.letter .seal{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-style:normal;font-synthesis:none}
+main .eyebrow,footer .eyebrow,.win .num,.field label,footer .a11y{font-family:Inter,system-ui,sans-serif;font-weight:500}
+main .btn,#bridge .go,footer .toggle{font-family:Inter,system-ui,sans-serif;font-weight:600;font-synthesis:none}
+.field input{font-family:Inter,system-ui,sans-serif;font-weight:400}
+footer .cols a{font-family:Inter,system-ui,sans-serif;font-weight:600}
 </style>
 </head>
 <body>
@@ -420,7 +427,7 @@ html.light #invite,html.light #ways,html.light #topics,html.light #story,html.li
   <div><p class="eyebrow">Letters from the quiet</p><h2 id="h-signup">A short, gentle <em>email course.</em></h2><p class="measure">A few slow letters on regulation, rhythm and getting to know yourself. Read them whenever you like.</p></div>
   <div class="letter"><span class="seal" aria-hidden="true">M</span>
    <div class="field"><label for="em">Your email address</label><input id="em" type="email" autocomplete="email" placeholder="you@example.com"><button class="btn" type="button">Begin</button></div>
-   <p style="font-size:.95rem;margin:1rem 0 0">Draft. Course length to be confirmed by Kim.</p>
+   <p style="font-size:1.125rem;margin:1rem 0 0">Draft. Course length to be confirmed by Kim.</p>
   </div>
  </div>
 </section>
