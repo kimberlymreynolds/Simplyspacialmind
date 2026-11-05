@@ -1,0 +1,1 @@
+- [Preview after Git refresh](preview-git-refresh.md) — automatic Vite restarts during repository refresh can keep serving the old app despite updated configuration.
